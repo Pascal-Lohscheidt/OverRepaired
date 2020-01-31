@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class InGameEventManager : Singleton<InGameEventManager>
 {
-    static Random random = new Random();
-
     static int maxNumberOfEvents = 3;
 
     static float timeBetweenEvents = 30f;
@@ -63,12 +61,12 @@ public class InGameEventManager : Singleton<InGameEventManager>
 
     void CreateRandomEvent()
     {
-        if(GetNumberOfWorkingObjects > 0){
+        if(GetNumberOfWorkingObjects() > 0){
 
             // get random item from the list
-            int i = random.Next(breakableObjects.Count);
+            int i = Random.Range(0, breakableObjects.Count);
             var breakableObject = breakableObjects[i];
-            
+
             if(breakableObject.IsBroken()){
                 breakableObject.Break();
             }
