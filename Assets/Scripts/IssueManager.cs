@@ -5,9 +5,7 @@ using UnityEngine;
 public class IssueManager : MonoBehaviour
 {
 
-    BreakableObject breakableObject;
-
-    List<GameObject> components;
+    public List<Issue> currentIssueList;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +19,4 @@ public class IssueManager : MonoBehaviour
         
     }
 
-    void HandleBehaviour()
-    {
-
-    }
-
-    void Fix()
-    {
-        this.breakableObject.Fix();
-    }
 }
