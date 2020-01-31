@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BreakableObject : MonoBehaviour
 {
-    bool working = true;
+    public bool working = true;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,7 @@ public class BreakableObject : MonoBehaviour
 
     public void Break()
     {
+        Debug.Log("BreakableObject.Break()");
         this.working = false;
     }
 
