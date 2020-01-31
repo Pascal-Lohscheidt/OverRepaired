@@ -18,7 +18,7 @@ public class ConstructionPlace : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentPhase = ConstructionPhase.Empty;
     }
 
     /// <summary>
@@ -28,12 +28,13 @@ public class ConstructionPlace : MonoBehaviour
     /// <returns></returns>
     public bool AddComponentToConstructionPlace(Component component)
     {
-        if(addedComponents.Count >= maxAmountOfComponents)
+        if(addedComponents.Count < maxAmountOfComponents)
         {
             addedComponents.Add(component);
+            currentPhase = ConstructionPhase.Loaded;
             return true; 
         }
-
+       
         return false;
     }
 
@@ -55,6 +56,8 @@ public class ConstructionPlace : MonoBehaviour
     private void FinishConstruction()
     {
         currentPhase = ConstructionPhase.Done;
+        string nameOfNewComponent = 
+        //TODO: Add instancaite method
 
     }
 
