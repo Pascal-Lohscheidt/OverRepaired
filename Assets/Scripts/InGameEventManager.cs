@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class InGameEventManager : Singleton<InGameEventManager>
 {
-    static Random random = new Random();
-
     static int maxNumberOfEvents = 3;
 
-    static float timeBetweenEvents = 30f;
-    float timeUntilNextEvent = 0f;
+    static float timeBetweenEvents = 3f;
+    float timeUntilNextEvent = 3f;
 
     List<BreakableObject> breakableObjects = new List<BreakableObject>();
 
 
-    public void Register(BreakableObject breakableObject){
+    public void Register(BreakableObject breakableObject)
+    {
         breakableObjects.Add(breakableObject);
     }
 
@@ -29,7 +28,7 @@ public class InGameEventManager : Singleton<InGameEventManager>
     {
         timeUntilNextEvent -= Time.deltaTime;
 
-        if(timeUntilNextEvent < 0 && GetNumberOfEvents() < maxNumberOfEvents)
+        if(timeUntilNextEvent < 0 && GetNumberOfEvents() < maxNumberOfEvents && GetNumberOfWorkingObjects() > 0)
         {
             CreateRandomEvent();
         }
@@ -63,21 +62,25 @@ public class InGameEventManager : Singleton<InGameEventManager>
 
     void CreateRandomEvent()
     {
-        if(GetNumberOfWorkingObjects > 0){
-
+        Debug.Log("CreateRandomEvent()");
+        if(GetNumberOfWorkingObjects() > 0)
+        {
             // get random item from the list
-            int i = random.Next(breakableObjects.Count);
+            int i = Random.Range(0, breakableObjects.Count);
             var breakableObject = breakableObjects[i];
-            
-            if(breakableObject.IsBroken()){
+
+            if(!breakableObject.IsBroken())
+            {
                 breakableObject.Break();
+                timeUntilNextEvent = timeBetweenEvents;
             }
             else
             {
+                Debug.Log("Already broken!");
+
                 // previous object was already broken, find another one
                 CreateRandomEvent();
             }
-
         }
     }
 }
