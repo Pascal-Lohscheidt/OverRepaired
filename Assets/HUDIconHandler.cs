@@ -16,6 +16,7 @@ public class HUDIconHandler : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         hudText = Instantiate(new GameObject(), HUDIconParent).AddComponent<TextMeshProUGUI>();
         hudText.alignment = TextAlignmentOptions.Center;
+        hudText.rectTransform.sizeDelta = new Vector2(500f, 40f);
     }
 
     // Update is called once per frame
@@ -50,4 +51,3 @@ public class HUDIconHandler : MonoBehaviour
         Destroy(hudText.gameObject);
     }
 }
-
