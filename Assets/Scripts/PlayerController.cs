@@ -5,14 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10.0f;
-    private float translation;
-    private float straffe;
 
     // Use this for initialization
     void Start()
     {
         // turn off the cursor
-        Cursor.lockState = CursorLockMode.Locked;
+       //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -20,17 +18,24 @@ public class PlayerController : MonoBehaviour
     {
         // Input.GetAxis() is used to get the user's input
         // You can furthor set it on Unity. (Edit, Project Settings, Input)
-        translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        transform.Translate(straffe, 0, translation);
+        float z  = Input.GetAxis("Vertical");
+        float x = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown("escape"))
+        if(z != 0f || x != 0f)
         {
-            // turn on the cursor
-            Cursor.lockState = CursorLockMode.None;
+            float angle = Mathf.Atan2(x, z) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, angle, 0);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
+     
 
-        transform.Translate(GetInputTranslationDirection() * speed * Time.deltaTime);
+        //if (Input.GetKeyDown("escape"))
+        //{
+        //    // turn on the cursor
+        //    Cursor.lockState = CursorLockMode.None;
+        //}
+
+        //transform.Translate(GetInputTranslationDirection() * speed * Time.deltaTime);
     }
 
     Vector3 GetInputTranslationDirection()
