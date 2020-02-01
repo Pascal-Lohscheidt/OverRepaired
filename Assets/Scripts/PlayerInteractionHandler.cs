@@ -109,7 +109,7 @@ public class PlayerInteractionHandler : MonoBehaviour
         }
         else if(currentObject.AddPickableComponent(holdingComponent)) 
         {
-            holdingComponent.transform.SetParent(currentObject.transform);
+            Destroy(holdingComponent.gameObject);
         }
 
         holdingComponent = null;

@@ -49,7 +49,7 @@ public class BreakableObject : InteractableObject
         if(pickAbleObject is ConstructedRepairComponent)
         {
             ConstructedRepairComponent newComponent = (ConstructedRepairComponent)pickAbleObject;
-            if (currentIssue.seekedWord.ToString() == newComponent.componentName)
+            if (currentIssue.seekedWord.ToString() == newComponent.partName)
             {
                 FixObject();
                 return true;

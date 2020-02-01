@@ -1,22 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceManager : Singleton<ResourceManager>
 {
+    public Slider EnergyBar;
+    public Slider IntegrityBar;
+    public Slider LifeSupportBar;
+
     private int damagePerBrokenObject = 2;
     private int recoveryDamageAmount = 1;
     private float damageCheckInterval = 2f;
     float nextCheckTime = 2f;
 
-    Resource energyResource = new Resource(Resource.ResourceType.Energy);
-    Resource integrityResource = new Resource(Resource.ResourceType.Integrity);
-    Resource lifeSupportResource = new Resource(Resource.ResourceType.LifeSupport);
+    Resource energyResource;
+    Resource integrityResource;
+    Resource lifeSupportResource;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        energyResource = new Resource(Resource.ResourceType.Energy, EnergyBar);
+        integrityResource = new Resource(Resource.ResourceType.Integrity, IntegrityBar);
+        lifeSupportResource = new Resource(Resource.ResourceType.LifeSupport, LifeSupportBar);
+
     }
 
     // Update is called once per frame

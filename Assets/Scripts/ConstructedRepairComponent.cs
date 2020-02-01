@@ -2,15 +2,15 @@
 
 public class ConstructedRepairComponent : PickAbleObject
 {
-    public string componentName;
 
     public void SetName(string newName)
     {
-        componentName = newName;
+        partName = newName;
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         print("test");
         ToggleVisibility(false);
         SetAffectedByGravity(false);

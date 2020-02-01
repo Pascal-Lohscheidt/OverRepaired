@@ -81,7 +81,7 @@ public class ConstructionPlace : InteractableObject
             foreach (RepairComponent item in addedComponents) cName += item.partName;
         }
 
-        finishedRepairComponent.componentName = cName;
+        finishedRepairComponent.partName = cName;
     }
 
     public void CancelConstruction()

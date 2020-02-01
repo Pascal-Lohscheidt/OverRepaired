@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 6906645592108210097}
   - component: {fileID: 6906645592108210096}
   - component: {fileID: 6906645592108210099}
+  - component: {fileID: -1728616285982587427}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: ConstructedComponentPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,3 +125,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   componentName: BASIC
+--- !u!114 &-1728616285982587427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6906645592108210101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36d9a0b590448b19d4bd4f4cc18278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependsOnDistance: 1
+  showTextDistance: 15

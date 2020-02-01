@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class WordGenerator : MonoBehaviour
 {
-    public List<string> BaseWord;
+    public List<string> BaseWord = new List<string>();
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class WordGenerator : MonoBehaviour
 
     public SerchedComponentenWort generateWord()
     {
-        return new SerchedComponentenWort()
+        return new SerchedComponentenWort
         {
         Prefix = BaseWord[Random.Range(0, BaseWord.Count)],
         BaseWord = BaseWord[Random.Range(0, BaseWord.Count)],
