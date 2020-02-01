@@ -34,7 +34,7 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
 
     private void Instance_OnIssueFixed(Issue Issue, BreakableObject arg1)
     {
-        Destroy(issuesOnTheList[Issue]);
+        Destroy(issuesOnTheList[Issue].gameObject);
         FixedTextAnimation(Issue);
     }
 

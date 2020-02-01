@@ -31,6 +31,7 @@ public class IssueManager : Singleton<IssueManager>
     internal void IssueFixed(BreakableObject breakableObject)
     {
         OnIssueFixed(currentIssueList[breakableObject], breakableObject);
+        currentIssueList.Remove(breakableObject);
     }
 
     internal void CaseCompindingNotNeeded(List<RepairComponent> addedComponents)
