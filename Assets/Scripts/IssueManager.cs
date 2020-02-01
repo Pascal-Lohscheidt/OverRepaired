@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IssueManager : Singleton<IssueManager>
 {
-    public List<Issue> currentIssueList;
+    public List<Issue> currentIssueList = new List<Issue>();
 
     private void Start()
     {

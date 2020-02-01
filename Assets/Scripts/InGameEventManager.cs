@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class InGameEventManager : Singleton<InGameEventManager>
 {
-    static int maxNumberOfEvents = 3;
+    [SerializeField] private int maxNumberOfEvents = 3;
 
-    static float timeBetweenEvents = 3f;
+    [SerializeField] private float timeBetweenEvents = 3f;
     float timeUntilNextEvent = 3f;
 
     List<BreakableObject> breakableObjects = new List<BreakableObject>();
@@ -28,41 +28,37 @@ public class InGameEventManager : Singleton<InGameEventManager>
     {
         timeUntilNextEvent -= Time.deltaTime;
 
-        if(timeUntilNextEvent < 0 && GetNumberOfEvents() < maxNumberOfEvents && GetNumberOfWorkingObjects() > 0)
-        {
+        if (timeUntilNextEvent < 0 && GetNumberOfEvents() < maxNumberOfEvents && GetNumberOfWorkingObjects() > 0)
             CreateRandomEvent();
-        }
     }
 
     int GetNumberOfEvents()
     {
         int numberOfEvents = 0;
+
         foreach(var breakableObject in breakableObjects)
         {
-            if(breakableObject.IsBroken())
-            {
-                numberOfEvents++;
-            }
+            if (breakableObject.IsBroken()) numberOfEvents++;
         }
+
         return numberOfEvents;
     }
 
     int GetNumberOfWorkingObjects()
     {
         int numberOfObjects = 0;
+
         foreach(var breakableObject in breakableObjects)
         {
-            if(!breakableObject.IsBroken())
-            {
-                numberOfObjects++;
-            }
+            if (!breakableObject.IsBroken()) numberOfObjects++;
         }
+
         return numberOfObjects;
     }
 
     void CreateRandomEvent()
     {
-        Debug.Log("CreateRandomEvent()");
+        //Debug.Log("CreateRandomEvent()");
         if(GetNumberOfWorkingObjects() > 0)
         {
             // get random item from the list
@@ -76,7 +72,7 @@ public class InGameEventManager : Singleton<InGameEventManager>
             }
             else
             {
-                Debug.Log("Already broken!");
+                //Debug.Log("Already broken!");
 
                 // previous object was already broken, find another one
                 CreateRandomEvent();
