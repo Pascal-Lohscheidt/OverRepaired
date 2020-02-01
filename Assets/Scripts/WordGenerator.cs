@@ -7,7 +7,7 @@ public class WordGenerator : MonoBehaviour
 
     private void Start()
     {
-        BaseWord = GetBaseWords(IssueManager.Instance.AllRepairComponents);
+        BaseWord = GetBaseWords(IssueManager.Instance.AllRepairComponentPrefaps);
     }
 
     private List<string> GetBaseWords(List<RepairComponent> allRepairComponents)

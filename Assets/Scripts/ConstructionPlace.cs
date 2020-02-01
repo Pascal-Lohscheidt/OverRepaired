@@ -77,6 +77,7 @@ public class ConstructionPlace : InteractableObject
         }
         else
         {
+            IssueManager.Instance.CaseCompindingNotNeeded(addedComponents);
             foreach (RepairComponent item in addedComponents) cName += item.partName;
         }
 
