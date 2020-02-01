@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ConstructionPlace : InteractableObject
 {
@@ -67,9 +68,19 @@ public class ConstructionPlace : InteractableObject
         ChangePhase(ConstructionPhase.Done);
         constructionTimer = 0;
         finishedRepairComponent = Instantiate(constructedComponentPrefab, transform).GetComponent<ConstructedRepairComponent>();
-        
-        
 
+        string cName = "";
+
+        if (IssueManager.Instance.currentIssueList.Values.ToList().Exists(i => i.ComponentsMatchIssue(addedComponents)))
+        {
+            cName = IssueManager.Instance.currentIssueList.Values.ToList().Find(i => i.ComponentsMatchIssue(addedComponents)).ReturnProperName();
+        }
+        else
+        {
+            foreach (RepairComponent item in addedComponents) cName += item.partName;
+        }
+
+        finishedRepairComponent.componentName = cName;
     }
 
     public void CancelConstruction()
@@ -114,7 +125,9 @@ public class ConstructionPlace : InteractableObject
         if(finishedRepairComponent != null)
         {
             ConstructedRepairComponent returnComponent = finishedRepairComponent;
+
             finishedRepairComponent = null;
+            addedComponents.Clear();
             ChangePhase(ConstructionPhase.Empty);
             return returnComponent;
         }

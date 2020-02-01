@@ -8,7 +8,7 @@ public class PickAbleObject : MonoBehaviour
     private Rigidbody rigidbody;
 
 
-    private void Start()
+    private void Awake()
     {
         renderer = GetComponent<Renderer>();
         rigidbody = GetComponent<Rigidbody>();
