@@ -4,17 +4,15 @@ using System.Collections.Generic;
 
 public class WordGenerator : MonoBehaviour
 {
-    public List<string> Prefix;
     public List<string> BaseWord;
-    public List<string> Suffix;
 
     public SerchedComponentenWort generateWord()
     {
         return new SerchedComponentenWort()
         {
-        Prefix = Prefix[Random.Range(0, Prefix.Count)],
+        Prefix = BaseWord[Random.Range(0, BaseWord.Count)],
         BaseWord = BaseWord[Random.Range(0, BaseWord.Count)],
-        Suffix = Suffix[Random.Range(0, Suffix.Count)]
+        Suffix = BaseWord[Random.Range(0, BaseWord.Count)]
         };
     }
 }

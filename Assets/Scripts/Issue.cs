@@ -10,12 +10,7 @@ public class Issue
     public Issue(SerchedComponentenWort SeekedWord, BreakableObject relatedObject)
     {
         this.relatedObject = relatedObject;
-        this.SeekedWord = SeekedWord;
-        requiredComponents = new List<RepairComponent>()
-        {
-            new RepairComponent(SeekedWord.Prefix),
-            new RepairComponent(SeekedWord.BaseWord),
-            new RepairComponent(SeekedWord.Suffix)}; 
+        this.SeekedWord = SeekedWord; 
     }
 
     public string GetNameOfComponent()
@@ -30,7 +25,7 @@ public class Issue
     public bool ComponentsMatchIssue(List<RepairComponent> compareList)
     {
         foreach (RepairComponent comp in requiredComponents)
-            if (!compareList.Exists(i => i.name == comp.name)) return false;
+            if (!compareList.Exists(i => i.partName == comp.partName)) return false;
         return true;
     }
 

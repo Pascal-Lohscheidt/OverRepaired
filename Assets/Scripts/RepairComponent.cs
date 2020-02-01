@@ -1,11 +1,6 @@
 ﻿using UnityEngine;
 
-public class RepairComponent : MonoBehaviour
+public class RepairComponent : PickAbleObject
 {
-    public string wordPart;
-
-    public RepairComponent(string wordPart)
-    {
-        this.wordPart = wordPart;
-    }
+    public string partName;
 }
