@@ -590,6 +590,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RepairComponent (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3521634745686015573, guid: 8e1f3ea0bbc544d1f8a236ab3e58f8bf,
+        type: 3}
+      propertyPath: partName
+      value: great
+      objectReference: {fileID: 0}
     - target: {fileID: 3521634745686015582, guid: 8e1f3ea0bbc544d1f8a236ab3e58f8bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -884,6 +889,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RepairComponent (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3521634745686015573, guid: 8e1f3ea0bbc544d1f8a236ab3e58f8bf,
+        type: 3}
+      propertyPath: partName
+      value: is
+      objectReference: {fileID: 0}
     - target: {fileID: 3521634745686015582, guid: 8e1f3ea0bbc544d1f8a236ab3e58f8bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1147,6 +1157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RepairComponent
+      objectReference: {fileID: 0}
+    - target: {fileID: 3521634745686015573, guid: 8e1f3ea0bbc544d1f8a236ab3e58f8bf,
+        type: 3}
+      propertyPath: partName
+      value: shit
       objectReference: {fileID: 0}
     - target: {fileID: 3521634745686015582, guid: 8e1f3ea0bbc544d1f8a236ab3e58f8bf,
         type: 3}
@@ -1509,6 +1524,12 @@ PrefabInstance:
       propertyPath: currentPhase
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9148347733359639815, guid: 0d6de50ff995d4d7b89abd63ff6d7714,
+        type: 3}
+      propertyPath: constructedComponentPrefab
+      value: 
+      objectReference: {fileID: 6906645592108210101, guid: 4f24ccab0a50643a4a35df6afbd1f133,
+        type: 3}
     - target: {fileID: 9148347733359639820, guid: 0d6de50ff995d4d7b89abd63ff6d7714,
         type: 3}
       propertyPath: m_LocalPosition.x
