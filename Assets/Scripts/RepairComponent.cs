@@ -2,5 +2,10 @@
 
 public class RepairComponent : MonoBehaviour
 {
-    public new string name;
+    public string wordPart;
+
+    public RepairComponent(string wordPart)
+    {
+        this.wordPart = wordPart;
+    }
 }
