@@ -1,18 +1,17 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.UI;
 
 public class IssueUIHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private List<IssueTicketElement> issuesOnTheList;
+    [SerializeField] private Transform ticketListPanel;
+    [SerializeField] private GameObject issueTicketElementPrefab;
+
+
+    public void CreateIssueTicketElement()
     {
-        
+        issuesOnTheList.Add(Instantiate(issueTicketElementPrefab, ticketListPanel).AddComponent<IssueTicketElement>());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

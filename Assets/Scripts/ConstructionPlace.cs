@@ -11,7 +11,7 @@ public class ConstructionPlace : MonoBehaviour
     public Sprite partsRequiredSprite;
     public Sprite doneSprite;
 
-    [HideInInspector] public List<Component> addedComponents;
+    [HideInInspector] public List<RepairComponent> addedComponents;
     private float constructionTimer;
 
 
@@ -26,7 +26,7 @@ public class ConstructionPlace : MonoBehaviour
     /// </summary>
     /// <param name="component"></param>
     /// <returns></returns>
-    public bool AddComponentToConstructionPlace(Component component)
+    public bool AddComponentToConstructionPlace(RepairComponent component)
     {
         if(addedComponents.Count < maxAmountOfComponents)
         {
@@ -56,7 +56,6 @@ public class ConstructionPlace : MonoBehaviour
     private void FinishConstruction()
     {
         currentPhase = ConstructionPhase.Done;
-        string nameOfNewComponent = 
         //TODO: Add instancaite method
 
     }
