@@ -10,12 +10,7 @@ public class Issue
     public Issue(SerchedComponentenWort SeekedWord, BreakableObject relatedObject)
     {
         this.relatedObject = relatedObject;
-        this.SeekedWord = SeekedWord;
-        requiredComponents = new List<RepairComponent>()
-        {
-            new RepairComponent(SeekedWord.Prefix),
-            new RepairComponent(SeekedWord.BaseWord),
-            new RepairComponent(SeekedWord.Suffix)}; 
+        this.SeekedWord = SeekedWord; 
     }
 
     public string GetNameOfComponent()

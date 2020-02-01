@@ -62,5 +62,7 @@ public class BreakableObject : InteractableObject
 
     public override void InteractContinuously()
     {
+
     }
+    
 }
