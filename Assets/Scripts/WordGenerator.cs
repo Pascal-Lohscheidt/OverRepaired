@@ -1,10 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class WordGenerator : MonoBehaviour
 {
     public List<string> BaseWord;
+
+    private void Start()
+    {
+        BaseWord = GetBaseWords(IssueManager.Instance.AllRepairComponents);
+    }
+
+    private List<string> GetBaseWords(List<RepairComponent> allRepairComponents)
+    {
+        BaseWord = new List<string>();
+        foreach (RepairComponent item in allRepairComponents)
+            BaseWord.Add(item.partName);
+        return BaseWord;
+    }
 
     public SerchedComponentenWort generateWord()
     {
