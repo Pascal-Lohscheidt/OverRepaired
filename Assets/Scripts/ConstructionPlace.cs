@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class ConstructionPlace : InteractableObject
 {
-    public enum ConstructionPhase { Empty, Loaded, Constructing, Done}
+    public enum ConstructionPhase { Empty, Loaded, Constructing, Done}  //red, yellow, n.a, green
     public ConstructionPhase currentPhase;
     public int maxAmountOfComponents;
     public float constructionDuration;
@@ -12,13 +12,16 @@ public class ConstructionPlace : InteractableObject
     public Sprite doneSprite;
 
     [HideInInspector] public List<RepairComponent> addedComponents;
+    private ConstructedRepairComponent finishedRepairComponent;
     private float constructionTimer;
+
+    [SerializeField] private Renderer renderer; 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        currentPhase = ConstructionPhase.Empty;
+        ChangePhase(ConstructionPhase.Empty);
     }
 
     /// <summary>
@@ -31,8 +34,9 @@ public class ConstructionPlace : InteractableObject
         if(addedComponents.Count < maxAmountOfComponents)
         {
             addedComponents.Add(component);
-            currentPhase = ConstructionPhase.Loaded;
-            return true; 
+            component.gameObject.GetComponent<Renderer>().enabled = false;
+            ChangePhase(ConstructionPhase.Loaded);
+            return true;
         }
        
         return false;
@@ -44,18 +48,24 @@ public class ConstructionPlace : InteractableObject
     /// <returns></returns>
     public bool Construct()
     {
-        constructionTimer += Time.deltaTime;
-        if(constructionTimer >= constructionDuration)
+        if (currentPhase != ConstructionPhase.Done)
         {
-            FinishConstruction();
-            return true;
+            constructionTimer += Time.deltaTime;
+            ChangePhase(ConstructionPhase.Constructing);
+            if (constructionTimer >= constructionDuration)
+            {
+                FinishConstruction();
+                return true;
+            }
         }
         return false;
     }
 
     private void FinishConstruction()
     {
-        currentPhase = ConstructionPhase.Done;
+        ChangePhase(ConstructionPhase.Done);
+        constructionTimer = 0;
+        
         //TODO: Add instancaite method
 
     }
@@ -63,7 +73,70 @@ public class ConstructionPlace : InteractableObject
     public void CancelConstruction()
     {
         constructionTimer = 0;
-        currentPhase = ConstructionPhase.Loaded;
+
+        if (currentPhase != ConstructionPhase.Done)
+        {
+            if (addedComponents.Count > 0)
+                ChangePhase(ConstructionPhase.Loaded);
+            else
+                ChangePhase(ConstructionPhase.Empty);
+        }
+    }
+
+
+    //================= Overide Methods =====================
+
+    public override bool AddPickableComponent(PickAbleObject pickAbleObject)
+    {
+        return AddComponentToConstructionPlace((RepairComponent)pickAbleObject);
+    }
+
+    public override void InteractContinuously(PlayerInteractionHandler handler)
+    {
+        if (addedComponents.Count > 0)
+        {
+            base.InteractContinuously(handler);
+            bool done = Construct();
+            if (done) handler.FinishContiniousInteraction();
+        }
+    }
+
+    public override void CancelContinuousInteraction()
+    {
+        base.CancelContinuousInteraction();
+        CancelConstruction();
+    }
+
+    public override ConstructedRepairComponent GetRepairComponent()
+    {
+        if(finishedRepairComponent != null)
+        {
+            ConstructedRepairComponent returnComponent = finishedRepairComponent;
+            finishedRepairComponent = null;
+            ChangePhase(ConstructionPhase.Empty);
+            return returnComponent;
+        }
+        return null;
+    }
+
+    private void ChangePhase(ConstructionPhase newPhase)
+    {
+        currentPhase = newPhase;
+        switch (newPhase)
+        {
+            case ConstructionPhase.Empty:
+                renderer.material.SetColor("_BaseColor", Color.red);
+                break;
+            case ConstructionPhase.Loaded:
+                renderer.material.SetColor("_BaseColor", Color.yellow);
+                break;
+            case ConstructionPhase.Constructing:
+                renderer.material.SetColor("_BaseColor", Color.blue);
+                break;
+            case ConstructionPhase.Done:
+                renderer.material.SetColor("_BaseColor", Color.green);
+                break;
+        }
     }
 
 }
