@@ -5,7 +5,6 @@ using System.Linq;
 public class Issue
 {
     public BreakableObject relatedObject;
-    public List<RepairComponent> requiredComponents;
     public SerchedComponentenWort seekedWord;
 
     public Issue(SerchedComponentenWort seekedWords, BreakableObject relatedObject)
@@ -21,8 +20,13 @@ public class Issue
 
     public bool ComponentsMatchIssue(List<RepairComponent> compareList)
     {
-        foreach (RepairComponent comp in requiredComponents)
-            if (!compareList.Exists(i => i.partName == comp.partName)) return false;
+        List<string> words = new List<string>();
+        words.Add(seekedWord.Prefix);
+        words.Add(seekedWord.BaseWord);
+        words.Add(seekedWord.Suffix);
+
+        foreach (string word in words)
+            if (!compareList.Exists(i => i.partName == word)) return false;
         return true;
     }
 
