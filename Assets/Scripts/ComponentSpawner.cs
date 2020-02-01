@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
 
 public class ComponentSpawner : MonoBehaviour
 {
@@ -8,7 +10,16 @@ public class ComponentSpawner : MonoBehaviour
     public List<Transform> SpawnTransforms;
     void Start()
     {
+        SpawnTransforms = SetChilds();
         IssueManager.Instance.OnIssueCreatetd += Instance_OnIssueCreatetd;
+    }
+
+    private List<Transform> SetChilds()
+    {
+        var childs = new List<Transform>();
+        foreach (Transform child in transform)
+            childs.Add(child);
+        return childs;
     }
 
     private void Instance_OnIssueCreatetd(Issue IssueEvent, List<RepairComponent> RepariComps)
@@ -16,7 +27,7 @@ public class ComponentSpawner : MonoBehaviour
         
         foreach (RepairComponent item in RepariComps)
         {
-            var _spownTransform = SpawnTransforms[Random.Range(0, SpawnTransforms.Count)];
+            var _spownTransform = SpawnTransforms[UnityEngine.Random.Range(0, SpawnTransforms.Count)];
             if(item.partName == IssueEvent.SeekedWord.Prefix)
             {
                 SetColor(Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity));
