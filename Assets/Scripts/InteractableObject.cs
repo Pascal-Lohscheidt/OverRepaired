@@ -2,14 +2,14 @@
 
 public class InteractableObject : MonoBehaviour
 {
-    public bool isContinuouslyInteractlable;
+    [HideInInspector] public bool isContinuouslyInteractlable;
 
     public virtual void InteractOnce()
     {
 
     }
 
-    public virtual void InteractContinuously()
+    public virtual void InteractContinuously(PlayerInteractionHandler handler)
     {
 
     }

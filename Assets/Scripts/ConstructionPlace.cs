@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class ConstructionPlace : InteractableObject
 {
-    public enum ConstructionPhase { Empty, Loaded, Constructing, Done}
+    public enum ConstructionPhase { Empty, Loaded, Constructing, Done}  //red, yellow, n.a, green
     public ConstructionPhase currentPhase;
     public int maxAmountOfComponents;
     public float constructionDuration;
@@ -14,11 +14,13 @@ public class ConstructionPlace : InteractableObject
     [HideInInspector] public List<RepairComponent> addedComponents;
     private float constructionTimer;
 
+    [SerializeField] private Renderer renderer; 
+
 
     // Start is called before the first frame update
     void Start()
     {
-        currentPhase = ConstructionPhase.Empty;
+        ChangePhase(ConstructionPhase.Empty);
     }
 
     /// <summary>
@@ -31,7 +33,7 @@ public class ConstructionPlace : InteractableObject
         if(addedComponents.Count < maxAmountOfComponents)
         {
             addedComponents.Add(component);
-            currentPhase = ConstructionPhase.Loaded;
+            ChangePhase(ConstructionPhase.Loaded);
             return true; 
         }
        
@@ -45,7 +47,8 @@ public class ConstructionPlace : InteractableObject
     public bool Construct()
     {
         constructionTimer += Time.deltaTime;
-        if(constructionTimer >= constructionDuration)
+        ChangePhase(ConstructionPhase.Constructing);
+        if (constructionTimer >= constructionDuration)
         {
             FinishConstruction();
             return true;
@@ -55,7 +58,7 @@ public class ConstructionPlace : InteractableObject
 
     private void FinishConstruction()
     {
-        currentPhase = ConstructionPhase.Done;
+        ChangePhase(ConstructionPhase.Done);
         //TODO: Add instancaite method
 
     }
@@ -63,7 +66,35 @@ public class ConstructionPlace : InteractableObject
     public void CancelConstruction()
     {
         constructionTimer = 0;
-        currentPhase = ConstructionPhase.Loaded;
+        ChangePhase(ConstructionPhase.Loaded);
+    }
+
+    public override void InteractContinuously(PlayerInteractionHandler handler)
+    {
+        base.InteractContinuously(handler);
+        bool done = Construct();
+        if (done) handler.FinishContiniousInteraction(); 
+
+    }
+
+    private void ChangePhase(ConstructionPhase newPhase)
+    {
+        currentPhase = newPhase;
+        switch (newPhase)
+        {
+            case ConstructionPhase.Empty:
+                renderer.material.SetColor("_BaseColor", Color.red);
+                break;
+            case ConstructionPhase.Loaded:
+                renderer.material.SetColor("_BaseColor", Color.yellow);
+                break;
+            case ConstructionPhase.Constructing:
+                renderer.material.SetColor("_BaseColor", Color.blue);
+                break;
+            case ConstructionPhase.Done:
+                renderer.material.SetColor("_BaseColor", Color.green);
+                break;
+        }
     }
 
 }

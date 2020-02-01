@@ -59,8 +59,4 @@ public class BreakableObject : InteractableObject
         base.InteractOnce();
         FixObject();
     }
-
-    public override void InteractContinuously()
-    {
-    }
 }

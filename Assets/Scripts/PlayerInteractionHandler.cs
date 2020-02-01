@@ -9,6 +9,8 @@ public class PlayerInteractionHandler : MonoBehaviour
 {
     private bool isInInteractionArea;
     private InteractableObject currentObject;
+    private bool doneWithCurrentInteraction; //only intersting for continous interactions
+    private RepairComponent holdingComponent;
 
     public void EnterInteractionArea(InteractableObject interactableObject)
     {
@@ -20,8 +22,26 @@ public class PlayerInteractionHandler : MonoBehaviour
     {
         currentObject = null;
         isInInteractionArea = false;
+        doneWithCurrentInteraction = false;
+
     }
 
+    private void PickUpComponent()
+    {
+
+    }
+
+    private void DropComponent()
+    {
+        if(currentObject == null) //just drop it on the floor
+        {
+
+        }
+        else
+        {
+
+        }
+    }
 
     public void Update()
     {
@@ -29,8 +49,8 @@ public class PlayerInteractionHandler : MonoBehaviour
         {
             if (currentObject.isContinuouslyInteractlable)
             {
-                if (Input.GetKey(KeyCode.E) && isInInteractionArea)
-                    currentObject.InteractContinuously();
+                if (Input.GetKey(KeyCode.E) && isInInteractionArea && !doneWithCurrentInteraction)
+                    currentObject.InteractContinuously(this);
             }
             else
             {
@@ -39,4 +59,10 @@ public class PlayerInteractionHandler : MonoBehaviour
             }
         }
     }
+
+    public void FinishContiniousInteraction()
+    {
+        doneWithCurrentInteraction = true;
+    }
+
 }
