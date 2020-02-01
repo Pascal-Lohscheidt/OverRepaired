@@ -1,27 +1,33 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class IssueManager : Singleton<IssueManager>
 {
-    public List<Issue> currentIssueList;
+    public Dictionary<BreakableObject, Issue> currentIssueList;
     public event UnityAction<Issue, List<RepairComponent>> OnIssueCreatetd;
+    public event UnityAction<Issue, BreakableObject> OnIssueFixed;
     public WordGenerator WordGen;
     public List<RepairComponent> AllRepairComponents;
 
 
     private void Start()
     {
-        currentIssueList = new List<Issue>();
+        currentIssueList = new Dictionary<BreakableObject, Issue>();
     }
 
     public void CreateIssue(BreakableObject relatedObject)
     {
         Issue newIssue = new Issue(WordGen.generateWord(), relatedObject);
         OnIssueCreatetd(newIssue, AllRepairComponents);
-        currentIssueList.Add(newIssue);
+        currentIssueList.Add(relatedObject,newIssue);
         WordGen.generateWord();
     }
 
+    internal void IssueFixed(BreakableObject breakableObject)
+    {
+        OnIssueFixed(currentIssueList[breakableObject], breakableObject);
+    }
 }
