@@ -19,6 +19,7 @@ public class BreakableObject : InteractableObject
     {
         renderer.material.SetColor("_BaseColor", Color.green);
         working = true;
+        IssueManager.Instance.IssueFixed(this); //Creating a new Issue because this component Broke
     }
 
     public void BreakObject()
