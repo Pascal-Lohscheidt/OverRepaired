@@ -29,7 +29,7 @@ public class PlayerInteractionHandler : MonoBehaviour
             else
             {
                 if (Input.GetKeyDown(KeyCode.E) && isInInteractionArea)
-                    currentObject.InteractOnce();
+                    currentObject.InteractOnce(this);
             }
         }
 

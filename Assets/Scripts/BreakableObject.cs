@@ -5,6 +5,7 @@ public class BreakableObject : InteractableObject
     public string objectName;
     public bool working = true;
     [SerializeField] private Renderer renderer;
+    public Issue currentIssue;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class BreakableObject : InteractableObject
         print("Broken: " + objectName);
         renderer.material.SetColor("_BaseColor", Color.red);
 
-        IssueManager.Instance.CreateIssue(this); //Creating a new Issue because this component Broke
+        currentIssue = IssueManager.Instance.CreateIssue(this); //Creating a new Issue because this component Broke
         working = false;
     }
 
@@ -36,9 +37,24 @@ public class BreakableObject : InteractableObject
         return !working;
     }
 
-    public override void InteractOnce()
+    public override void InteractOnce(PlayerInteractionHandler handler)
     {
-        base.InteractOnce();
-        FixObject();
+        base.InteractOnce(handler);
+    }
+
+    public override bool AddPickableComponent(PickAbleObject pickAbleObject)
+    {
+        if(pickAbleObject is ConstructedRepairComponent)
+        {
+            ConstructedRepairComponent newComponent = (ConstructedRepairComponent)pickAbleObject;
+            if (currentIssue.seekedWord.ToString() == newComponent.componentName)
+            {
+                FixObject();
+                return true;
+            }
+            return false;
+        }
+        return false;
+        
     }
 }

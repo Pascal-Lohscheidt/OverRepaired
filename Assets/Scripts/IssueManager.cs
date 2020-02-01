@@ -18,12 +18,13 @@ public class IssueManager : Singleton<IssueManager>
         currentIssueList = new Dictionary<BreakableObject, Issue>();
     }
 
-    public void CreateIssue(BreakableObject relatedObject)
+    public Issue CreateIssue(BreakableObject relatedObject)
     {
         Issue newIssue = new Issue(WordGen.generateWord(), relatedObject);
         OnIssueCreatetd(newIssue, AllRepairComponents);
         currentIssueList.Add(relatedObject,newIssue);
         WordGen.generateWord();
+        return newIssue;
     }
 
     internal void IssueFixed(BreakableObject breakableObject)

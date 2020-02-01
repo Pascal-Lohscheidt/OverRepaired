@@ -6,21 +6,17 @@ public class Issue
 {
     public BreakableObject relatedObject;
     public List<RepairComponent> requiredComponents;
-    public SerchedComponentenWort SeekedWord;
+    public SerchedComponentenWort seekedWord;
 
-    public Issue(SerchedComponentenWort SeekedWord, BreakableObject relatedObject)
+    public Issue(SerchedComponentenWort seekedWords, BreakableObject relatedObject)
     {
         this.relatedObject = relatedObject;
-        this.SeekedWord = SeekedWord; 
+        this.seekedWord = seekedWords; 
     }
 
     public string GetNameOfComponent()
     {
-        string newName = "";
-
-        foreach (RepairComponent comp in requiredComponents) newName += comp.name;
-
-        return newName;
+        return seekedWord.ToString();
     }
 
     public bool ComponentsMatchIssue(List<RepairComponent> compareList)

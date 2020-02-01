@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System;
 using DG.Tweening;
 
-public class IssueUIHandler : MonoBehaviour
+public class IssueUIHandler : Singleton<IssueUIHandler>
 {
     private Dictionary<Issue, IssueTicketElement> issuesOnTheList;
     [SerializeField] private Transform ticketListPanel; // Notification Pop down
@@ -24,12 +24,12 @@ public class IssueUIHandler : MonoBehaviour
     public string SetFixedText(Issue Issue)
     {
         return "New issue \n" +
-        Issue.relatedObject.objectName + " is Brokaen \n" +
-        Issue.SeekedWord.ToString() + " is Needed";
+        Issue.relatedObject.objectName + " is broken \n" +
+        Issue.seekedWord.ToString() + " is needed";
     }
     public string SetNewIssueText(Issue Issue)
     {
-        return Issue.relatedObject.objectName + " has been Fixed";
+        return Issue.relatedObject.objectName + " has been fixed";
     }
 
     private void Instance_OnIssueFixed(Issue Issue, BreakableObject arg1)
