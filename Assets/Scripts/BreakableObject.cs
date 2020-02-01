@@ -12,26 +12,15 @@ public class BreakableObject : MonoBehaviour
         InGameEventManager.Instance.Register(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FixObject()
     {
-        
+        working = true;
     }
 
-    void HandleBehaviour()
+    public void BreakObject()
     {
-
-    }
-
-    public void Fix()
-    {
-        this.working = true;
-    }
-
-    public void Break()
-    {
-        Debug.Log("BreakableObject.Break()");
-        this.working = false;
+        IssueManager.Instance.CreateIssue(this); //Creating a new Issue because this component Broke
+        working = false;
     }
 
     public bool IsBroken()

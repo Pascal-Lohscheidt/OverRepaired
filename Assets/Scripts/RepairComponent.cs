@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Component : MonoBehaviour
+public class RepairComponent : MonoBehaviour
 {
     public new string name;
 }
