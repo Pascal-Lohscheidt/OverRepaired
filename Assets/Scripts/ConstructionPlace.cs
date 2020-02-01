@@ -12,6 +12,7 @@ public class ConstructionPlace : InteractableObject
     public Sprite doneSprite;
 
     [HideInInspector] public List<RepairComponent> addedComponents;
+    private ConstructedRepairComponent finishedRepairComponent;
     private float constructionTimer;
 
     [SerializeField] private Renderer renderer; 
@@ -33,8 +34,9 @@ public class ConstructionPlace : InteractableObject
         if(addedComponents.Count < maxAmountOfComponents)
         {
             addedComponents.Add(component);
+            component.gameObject.GetComponent<Renderer>().enabled = false;
             ChangePhase(ConstructionPhase.Loaded);
-            return true; 
+            return true;
         }
        
         return false;
@@ -46,12 +48,15 @@ public class ConstructionPlace : InteractableObject
     /// <returns></returns>
     public bool Construct()
     {
-        constructionTimer += Time.deltaTime;
-        ChangePhase(ConstructionPhase.Constructing);
-        if (constructionTimer >= constructionDuration)
+        if (currentPhase != ConstructionPhase.Done)
         {
-            FinishConstruction();
-            return true;
+            constructionTimer += Time.deltaTime;
+            ChangePhase(ConstructionPhase.Constructing);
+            if (constructionTimer >= constructionDuration)
+            {
+                FinishConstruction();
+                return true;
+            }
         }
         return false;
     }
@@ -59,6 +64,8 @@ public class ConstructionPlace : InteractableObject
     private void FinishConstruction()
     {
         ChangePhase(ConstructionPhase.Done);
+        constructionTimer = 0;
+        
         //TODO: Add instancaite method
 
     }
@@ -66,15 +73,50 @@ public class ConstructionPlace : InteractableObject
     public void CancelConstruction()
     {
         constructionTimer = 0;
-        ChangePhase(ConstructionPhase.Loaded);
+
+        if (currentPhase != ConstructionPhase.Done)
+        {
+            if (addedComponents.Count > 0)
+                ChangePhase(ConstructionPhase.Loaded);
+            else
+                ChangePhase(ConstructionPhase.Empty);
+        }
+    }
+
+
+    //================= Overide Methods =====================
+
+    public override bool AddPickableComponent(PickAbleObject pickAbleObject)
+    {
+        return AddComponentToConstructionPlace((RepairComponent)pickAbleObject);
     }
 
     public override void InteractContinuously(PlayerInteractionHandler handler)
     {
-        base.InteractContinuously(handler);
-        bool done = Construct();
-        if (done) handler.FinishContiniousInteraction(); 
+        if (addedComponents.Count > 0)
+        {
+            base.InteractContinuously(handler);
+            bool done = Construct();
+            if (done) handler.FinishContiniousInteraction();
+        }
+    }
 
+    public override void CancelContinuousInteraction()
+    {
+        base.CancelContinuousInteraction();
+        CancelConstruction();
+    }
+
+    public override ConstructedRepairComponent GetRepairComponent()
+    {
+        if(finishedRepairComponent != null)
+        {
+            ConstructedRepairComponent returnComponent = finishedRepairComponent;
+            finishedRepairComponent = null;
+            ChangePhase(ConstructionPhase.Empty);
+            return returnComponent;
+        }
+        return null;
     }
 
     private void ChangePhase(ConstructionPhase newPhase)

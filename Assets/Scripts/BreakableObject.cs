@@ -35,25 +35,6 @@ public class BreakableObject : InteractableObject
         return !working;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Player"))
-        {
-            PlayerInteractionHandler handler = other.gameObject.GetComponent<PlayerInteractionHandler>();
-            handler.EnterInteractionArea(this);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            PlayerInteractionHandler handler = other.gameObject.GetComponent<PlayerInteractionHandler>();
-            handler.LeaveInteractionArea();
-        }
-    }
-
-
     public override void InteractOnce()
     {
         base.InteractOnce();
