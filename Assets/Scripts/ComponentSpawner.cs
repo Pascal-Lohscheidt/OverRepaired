@@ -16,15 +16,11 @@ public class ComponentSpawner : MonoBehaviour
 
     private void CreatMissingReapirComponents(List<RepairComponent> missingObj, List<RepairComponent> RepariComps)
     {
-        var ListOfPossibleSpownSpots = SpawnTransforms.Where(x => x.isSpawnSpotBussy).ToList();
+        var ListOfPossibleSpownSpots = SpawnTransforms.Where(x => !x.isSpawnSpotBussy).ToList();
         foreach (var prefap in RepariComps)
             foreach (var item in missingObj)
                 if (item.partName == prefap.partName)
-                {
-                    
-                    var _spownTransform = ListOfPossibleSpownSpots[Random.Range(0, SpawnTransforms.Count)];
-                    Instantiate<RepairComponent>(item, _spownTransform.transform.position, Quaternion.identity);
-                }
+                    CreateObject(item, ListOfPossibleSpownSpots);
     }
 
     private List<Transform> SetChilds()
@@ -37,26 +33,35 @@ public class ComponentSpawner : MonoBehaviour
 
     private void Instance_OnIssueCreatetd(Issue IssueEvent, List<RepairComponent> RepariComps)
     {
-
+        var ListOfPossibleSpownSpots = SpawnTransforms.Where(x => !x.isSpawnSpotBussy).ToList();
         foreach (RepairComponent item in RepariComps)
         {
-            var _spownTransform = SpawnTransforms[Random.Range(0, SpawnTransforms.Count)];
             if(item.partName == IssueEvent.seekedWord.Prefix)
             {
-                SetColor(Instantiate<RepairComponent>(item, _spownTransform.transform.position, Quaternion.identity));
+                CreateObject(item, ListOfPossibleSpownSpots);
             }
             if (item.partName == IssueEvent.seekedWord.BaseWord)
             {
-                SetColor(Instantiate<RepairComponent>(item, _spownTransform.transform.position, Quaternion.identity));
+                CreateObject(item, ListOfPossibleSpownSpots);
             }
             if (item.partName == IssueEvent.seekedWord.Suffix)
             {
-                SetColor(Instantiate<RepairComponent>(item, _spownTransform.transform.position, Quaternion.identity));
+                CreateObject(item, ListOfPossibleSpownSpots);
             }
-
         }
     }
 
+    private RepairComponent CreateObject(RepairComponent item, List<SpownPointSpot> listOfPossibleSpownSpots)
+    {
+        if (listOfPossibleSpownSpots.Count == 0)
+            return null;
+        int index = Random.Range(0, listOfPossibleSpownSpots.Count - 1);
+        var _spownTransform = listOfPossibleSpownSpots[index];
+        listOfPossibleSpownSpots.RemoveAt(index);
+        var instanz = Instantiate<RepairComponent>(item, _spownTransform.transform.position, Quaternion.identity);
+        SetColor(instanz);
+        return instanz;
+    }
 
     public void SetColor(RepairComponent instanz)
     {
