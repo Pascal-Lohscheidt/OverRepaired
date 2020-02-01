@@ -1133,6 +1133,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8459856726714516470, guid: 7511cb81a22944f35a225b728a85e108,
+        type: 3}
+      propertyPath: minTimeAfterFix
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459856726714516470, guid: 7511cb81a22944f35a225b728a85e108,
+        type: 3}
+      propertyPath: timeBetweenEvents
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8459856726714516471, guid: 7511cb81a22944f35a225b728a85e108,
         type: 3}
       propertyPath: AllRepairComponents.Array.size

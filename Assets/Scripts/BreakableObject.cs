@@ -7,6 +7,7 @@ public class BreakableObject : InteractableObject
     [SerializeField] private Renderer renderer;
     [SerializeField] public Resource.ResourceType resourceType;
     public Issue currentIssue;
+    public float lastTimeFixed;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class BreakableObject : InteractableObject
         IssueManager.Instance.IssueFixed(this); //Creating a new Issue because this component Broke
         renderer.material.SetColor("_BaseColor", Color.green);
         working = true;
+        lastTimeFixed = Time.unscaledTime;
     }
 
     public void BreakObject()
