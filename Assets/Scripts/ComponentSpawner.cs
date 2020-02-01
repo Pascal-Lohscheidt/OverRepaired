@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -23,7 +22,7 @@ public class ComponentSpawner : MonoBehaviour
                 if (item.partName == prefap.partName)
                 {
                     
-                    var _spownTransform = ListOfPossibleSpownSpots[UnityEngine.Random.Range(0, SpawnTransforms.Count)];
+                    var _spownTransform = ListOfPossibleSpownSpots[Random.Range(0, SpawnTransforms.Count)];
                     Instantiate<RepairComponent>(item, _spownTransform.transform.position, Quaternion.identity);
                 }
     }
@@ -44,15 +43,15 @@ public class ComponentSpawner : MonoBehaviour
             var _spownTransform = SpawnTransforms[Random.Range(0, SpawnTransforms.Count)];
             if(item.partName == IssueEvent.seekedWord.Prefix)
             {
-                SetColor(Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity));
+                SetColor(Instantiate<RepairComponent>(item, _spownTransform.transform.position, Quaternion.identity));
             }
             if (item.partName == IssueEvent.seekedWord.BaseWord)
             {
-                SetColor(Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity));
+                SetColor(Instantiate<RepairComponent>(item, _spownTransform.transform.position, Quaternion.identity));
             }
             if (item.partName == IssueEvent.seekedWord.Suffix)
             {
-                SetColor(Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity));
+                SetColor(Instantiate<RepairComponent>(item, _spownTransform.transform.position, Quaternion.identity));
             }
 
         }
