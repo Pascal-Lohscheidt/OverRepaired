@@ -5,6 +5,7 @@ public class BreakableObject : InteractableObject
     public string objectName;
     public bool working = true;
     [SerializeField] private Renderer renderer;
+    [SerializeField] private Resource.ResourceType resourceType;
 
     // Start is called before the first frame update
     void Start()
