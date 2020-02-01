@@ -11,16 +11,17 @@ public class BreakableObject : InteractableObject
     void Start()
     {
         InGameEventManager.Instance.Register(this);
-        FixObject();
+        renderer.material.SetColor("_BaseColor", Color.green);
+        working = true;
         isContinuouslyInteractlable = false;
         // You can look up the property by ID instead of the string to be more efficient.
     }
 
     public void FixObject()
     {
+        IssueManager.Instance.IssueFixed(this); //Creating a new Issue because this component Broke
         renderer.material.SetColor("_BaseColor", Color.green);
         working = true;
-        IssueManager.Instance.IssueFixed(this); //Creating a new Issue because this component Broke
     }
 
     public void BreakObject()

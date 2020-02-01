@@ -54,6 +54,7 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
         // Rotation
         CurrentAnimation = transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
     }
+
     void CheckIfRunningOtherwiseDisable()
     {
         if (CurrentAnimation != null)
@@ -63,7 +64,6 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
                 ()=> MainText.gameObject.SetActive(false));
         }
     }
-
 
 
     /// <summary>
