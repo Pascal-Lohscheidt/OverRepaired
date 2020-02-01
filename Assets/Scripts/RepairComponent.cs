@@ -2,5 +2,5 @@
 
 public class RepairComponent : PickAbleObject
 {
-    public string PartName;
+    public string partName;
 }

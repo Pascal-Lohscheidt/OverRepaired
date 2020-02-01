@@ -25,7 +25,7 @@ public class Issue
     public bool ComponentsMatchIssue(List<RepairComponent> compareList)
     {
         foreach (RepairComponent comp in requiredComponents)
-            if (!compareList.Exists(i => i.name == comp.name)) return false;
+            if (!compareList.Exists(i => i.partName == comp.partName)) return false;
         return true;
     }
 
