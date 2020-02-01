@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Resource
 {
     public ResourceType resourceType;
+    public Slider resourceBar;
 
     // status 0 depleted - 100 intact
     protected int statusValue = 100;
@@ -16,9 +18,10 @@ public class Resource
         Energy
     }
 
-    public Resource(ResourceType selectedType)
+    public Resource(ResourceType selectedType, Slider selectedBar)
     {
         resourceType = selectedType;
+        resourceBar = selectedBar;
     }
 
     public void CauseDamage(int damage)
@@ -26,11 +29,15 @@ public class Resource
         if(statusValue > 0)
         {
             statusValue -= damage;
-            Debug.Log("Resource " + resourceType.ToString() + " damaged! Status: " + statusValue);
         }
         else
         {
             Debug.Log("Resource is destroyed: " + resourceType.ToString());
+        }
+
+        if(resourceBar != null)
+        {
+            resourceBar.value = statusValue;
         }
     }
 
@@ -45,5 +52,9 @@ public class Resource
             statusValue += amount;
         }
 
+        if (resourceBar != null)
+        {
+            resourceBar.value = statusValue;
+        }
     }
 }
