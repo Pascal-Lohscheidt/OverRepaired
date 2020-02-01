@@ -5,7 +5,7 @@ public class InteractableObject : MonoBehaviour
     [HideInInspector] public bool isContinuouslyInteractlable;
     
 
-    public virtual void InteractOnce() { }
+    public virtual void InteractOnce(PlayerInteractionHandler handler) { }
 
     public virtual void InteractContinuously(PlayerInteractionHandler handler) { }
 
