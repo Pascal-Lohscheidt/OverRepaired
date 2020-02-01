@@ -33,4 +33,17 @@ public class Resource
             Debug.Log("Resource is destroyed: " + resourceType.ToString());
         }
     }
+
+    public void RecoverDamage(int amount)
+    {
+        if(statusValue + amount > 100)
+        {
+            statusValue = 100;
+        }
+        else
+        {
+            statusValue += amount;
+        }
+
+    }
 }
