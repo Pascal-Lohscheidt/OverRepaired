@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8339537796220954162}
   - component: {fileID: 8841562509521879501}
   - component: {fileID: 6433284622418051444}
+  - component: {fileID: 306350168488407003}
   m_Layer: 0
   m_Name: door_L
   m_TagString: Untagged
@@ -113,6 +114,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &306350168488407003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927406458909692071}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.15, y: 2.2, z: 0.099999994}
+  m_Center: {x: 0.425, y: 1.1, z: 0}
 --- !u!1 &2288099983269648668
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +140,7 @@ GameObject:
   - component: {fileID: 1103861499684961684}
   - component: {fileID: 6945108397697636321}
   - component: {fileID: 4682336086751266854}
+  - component: {fileID: 2207076844246888132}
   m_Layer: 0
   m_Name: door_R
   m_TagString: Untagged
@@ -226,6 +241,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &2207076844246888132
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2288099983269648668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.15, y: 2.2, z: 0.099999994}
+  m_Center: {x: 0.425, y: 1.1, z: 0}
 --- !u!1 &8101889472362007605
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,6 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1163685714567414739}
+  - component: {fileID: 5076643182463979471}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -258,3 +287,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &5076643182463979471
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8101889472362007605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}

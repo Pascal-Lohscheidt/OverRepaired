@@ -4,6 +4,7 @@ using UnityEngine;
 public class RepairComponent : PickAbleObject
 {
     public string partName;
+<<<<<<< HEAD
     public static List<RepairComponent> Instances { get; private set; } = new List<RepairComponent>();
     int instanceIndex = 0;
 
@@ -21,5 +22,13 @@ public class RepairComponent : PickAbleObject
             Instances[instanceIndex] = Instances[end];
             Instances.RemoveAt(end);
         }
+=======
+    private HUDIconHandler iconHandler;
+
+    private void Start()
+    {
+        iconHandler = GetComponent<HUDIconHandler>();
+        iconHandler.UpdateText(partName);
+>>>>>>> origin/master
     }
 }

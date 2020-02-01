@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class IssueUIHandler : Singleton<IssueUIHandler>
 {
-    private Dictionary<Issue, IssueTicketElement> issuesOnTheList;
+    private Dictionary<Issue, IssueTicketElement> issuesOnTheList = new Dictionary<Issue, IssueTicketElement>();
     [SerializeField] private Transform ticketListPanel; // Notification Pop down
     [SerializeField] private GameObject issueTicketElementPrefab;
     public Text MainText;
@@ -73,8 +73,11 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
     /// <param name="arg1"></param>
     private void Instance_OnIssueCreatetd(Issue Issue, List<RepairComponent> arg1)
     {
-        var instent = Instantiate(issueTicketElementPrefab, ticketListPanel);
-        issuesOnTheList.Add(Issue, instent.AddComponent<IssueTicketElement>());
+        IssueTicketElement instance = Instantiate(issueTicketElementPrefab, ticketListPanel).GetComponent<IssueTicketElement>();
+
+        instance.UpdateText(Issue);
+
+        issuesOnTheList.Add(Issue, instance);
         NeueIssueTextAnimation(Issue);
     }
 
