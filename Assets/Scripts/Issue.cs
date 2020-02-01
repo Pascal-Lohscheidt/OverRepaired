@@ -1,10 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public struct Issue
+public class Issue
 {
     public BreakableObject relatedObject;
     public List<RepairComponent> requiredComponents;
+    public SerchedComponentenWort SeekedWord;
+
+    public Issue(SerchedComponentenWort SeekedWord, BreakableObject relatedObject)
+    {
+        this.relatedObject = relatedObject;
+        this.SeekedWord = SeekedWord;
+        requiredComponents = new List<RepairComponent>()
+        {
+            new RepairComponent(SeekedWord.Prefix),
+            new RepairComponent(SeekedWord.BaseWord),
+            new RepairComponent(SeekedWord.Suffix)}; 
+    }
 
     public string GetNameOfComponent()
     {
