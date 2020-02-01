@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class IssueManager : Singleton<IssueManager>
 {
-    public Dictionary<BreakableObject, Issue> currentIssueList;
+    public Dictionary<BreakableObject, Issue> currentIssueList = new Dictionary<BreakableObject, Issue>();
     public event UnityAction<Issue, List<RepairComponent>> OnIssueCreatetd;
     public event UnityAction<Issue, BreakableObject> OnIssueFixed;
     public WordGenerator WordGen;
