@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10.0f;
+    private float normalSpeed;
+    public float pasteMultiplicator = 1f;
 
     // Use this for initialization
     void Start()
     {
+        normalSpeed = speed;
         // turn off the cursor
        //Cursor.lockState = CursorLockMode.Locked;
     }
@@ -27,6 +30,9 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, angle, 0);
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
+
+        if (Input.GetKey(KeyCode.LeftShift)) speed = normalSpeed * pasteMultiplicator;
+        else speed = normalSpeed;
      
 
         //if (Input.GetKeyDown("escape"))

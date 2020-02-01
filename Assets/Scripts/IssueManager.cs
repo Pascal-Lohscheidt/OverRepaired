@@ -23,7 +23,12 @@ public class IssueManager : Singleton<IssueManager>
     {
         Issue newIssue = new Issue(WordGen.generateWord(), relatedObject);
         OnIssueCreatetd(newIssue, AllRepairComponentPrefaps);
-        currentIssueList.Add(relatedObject,newIssue);
+
+        if (currentIssueList.ContainsKey(relatedObject))
+            currentIssueList[relatedObject] = newIssue;
+        else
+            currentIssueList.Add(relatedObject,newIssue);
+
         WordGen.generateWord();
         return newIssue;
     }
@@ -31,11 +36,12 @@ public class IssueManager : Singleton<IssueManager>
     internal void IssueFixed(BreakableObject breakableObject)
     {
         OnIssueFixed(currentIssueList[breakableObject], breakableObject);
+        currentIssueList.Remove(breakableObject);
     }
 
     internal void CaseCompindingNotNeeded(List<RepairComponent> addedComponents)
     {
-        var Missing = RepairComponent.Instances.Intersect(addedComponents).ToList();
-        OnWrongCreation(Missing, AllRepairComponentPrefaps);
+        //var Missing = RepairComponent.Instances.Intersect(addedComponents).ToList();
+        OnWrongCreation(addedComponents, AllRepairComponentPrefaps);
     }
 }

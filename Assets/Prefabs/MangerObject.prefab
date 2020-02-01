@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8459856725752084941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.86, y: 0.41, z: 11.44}
+  m_LocalPosition: {x: -11.51, y: 0.41, z: 11.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8459856726480317975}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8459856725996585352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.21, y: 0.41, z: -9.66}
+  m_LocalPosition: {x: 9.34, y: 0.41, z: -9.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8459856726480317975}
@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 8459856726714516470}
   - component: {fileID: 8459856726714516471}
   - component: {fileID: 8459856726714516468}
+  - component: {fileID: 763451966}
   m_Layer: 0
   m_Name: MangerObject
   m_TagString: Untagged
@@ -246,7 +247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxNumberOfEvents: 3
-  timeBetweenEvents: 4
+  timeBetweenEvents: 6
+  minTimeAfterFix: 20
 --- !u!114 &8459856726714516471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +262,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WordGen: {fileID: 8459856726714516468}
-  AllRepairComponents: []
+  AllRepairComponentPrefaps:
+  - {fileID: 7563654839908965266, guid: 758d5168883b24c63a2eddfab5672dd0, type: 3}
+  - {fileID: 3848313499862828618, guid: 427cf677d8c924d568b6a06ed3876069, type: 3}
+  - {fileID: 3743231588870759467, guid: 8187b1a1f756d4fc29cb9426e2698eeb, type: 3}
 --- !u!114 &8459856726714516468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,3 +283,18 @@ MonoBehaviour:
   - und
   - Gewalt
   - Shit
+--- !u!114 &763451966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8459856726714516456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc267f1998b7b4c6eb73345de338dccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnergyBar: {fileID: 0}
+  IntegrityBar: {fileID: 0}
+  LifeSupportBar: {fileID: 0}
