@@ -4,20 +4,20 @@ using System.Collections.Generic;
 public struct Issue
 {
     public BreakableObject relatedObject;
-    public List<Component> requiredComponents;
+    public List<RepairComponent> requiredComponents;
 
     public string GetNameOfComponent()
     {
         string newName = "";
 
-        foreach (Component comp in requiredComponents) newName += comp.name;
+        foreach (RepairComponent comp in requiredComponents) newName += comp.name;
 
         return newName;
     }
 
-    public bool ComponentsMatchIssue(List<Component> compareList)
+    public bool ComponentsMatchIssue(List<RepairComponent> compareList)
     {
-        foreach (Component comp in requiredComponents)
+        foreach (RepairComponent comp in requiredComponents)
             if (!compareList.Exists(i => i.name == comp.name)) return false;
         return true;
     }

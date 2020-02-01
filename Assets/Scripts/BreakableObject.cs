@@ -4,34 +4,29 @@ using UnityEngine;
 
 public class BreakableObject : MonoBehaviour
 {
+    public string objectName;
     public bool working = true;
+    private new Renderer renderer;
 
     // Start is called before the first frame update
     void Start()
     {
         InGameEventManager.Instance.Register(this);
+        renderer = GetComponent<Renderer>();
+        FixObject();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FixObject()
     {
-        
+        renderer.material.color = Color.green;
+        working = true;
     }
 
-    void HandleBehaviour()
+    public void BreakObject()
     {
-
-    }
-
-    public void Fix()
-    {
-        this.working = true;
-    }
-
-    public void Break()
-    {
-        Debug.Log("BreakableObject.Break()");
-        this.working = false;
+        renderer.material.color = Color.red;
+        IssueManager.Instance.CreateIssue(this); //Creating a new Issue because this component Broke
+        working = false;
     }
 
     public bool IsBroken()

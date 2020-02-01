@@ -71,7 +71,7 @@ public class InGameEventManager : Singleton<InGameEventManager>
 
             if(!breakableObject.IsBroken())
             {
-                breakableObject.Break();
+                breakableObject.BreakObject();
                 timeUntilNextEvent = timeBetweenEvents;
             }
             else
