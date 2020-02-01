@@ -4,9 +4,9 @@ using UnityEngine.UI;
 using System;
 using DG.Tweening;
 
-public class IssueUIHandler : MonoBehaviour
+public class IssueUIHandler : Singleton<IssueUIHandler>
 {
-    private Dictionary<Issue, IssueTicketElement> issuesOnTheList;
+    private Dictionary<Issue, IssueTicketElement> issuesOnTheList = new Dictionary<Issue, IssueTicketElement>();
     [SerializeField] private Transform ticketListPanel; // Notification Pop down
     [SerializeField] private GameObject issueTicketElementPrefab;
     public Text MainText;
@@ -24,12 +24,12 @@ public class IssueUIHandler : MonoBehaviour
     public string SetFixedText(Issue Issue)
     {
         return "New issue \n" +
-        Issue.relatedObject.objectName + " is Brokaen \n" +
-        Issue.SeekedWord.ToString() + " is Needed";
+        Issue.relatedObject.objectName + " is broken \n" +
+        Issue.seekedWord.ToString() + " is needed";
     }
     public string SetNewIssueText(Issue Issue)
     {
-        return Issue.relatedObject.objectName + " has been Fixed";
+        return Issue.relatedObject.objectName + " has been fixed";
     }
 
     private void Instance_OnIssueFixed(Issue Issue, BreakableObject arg1)
@@ -54,6 +54,7 @@ public class IssueUIHandler : MonoBehaviour
         // Rotation
         CurrentAnimation = transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
     }
+
     void CheckIfRunningOtherwiseDisable()
     {
         if (CurrentAnimation != null)
@@ -65,7 +66,6 @@ public class IssueUIHandler : MonoBehaviour
     }
 
 
-
     /// <summary>
     /// CreateIssueTicketElement
     /// </summary>
@@ -73,8 +73,11 @@ public class IssueUIHandler : MonoBehaviour
     /// <param name="arg1"></param>
     private void Instance_OnIssueCreatetd(Issue Issue, List<RepairComponent> arg1)
     {
-        var instent = Instantiate(issueTicketElementPrefab, ticketListPanel);
-        issuesOnTheList.Add(Issue, instent.AddComponent<IssueTicketElement>());
+        IssueTicketElement instance = Instantiate(issueTicketElementPrefab, ticketListPanel).GetComponent<IssueTicketElement>();
+
+        instance.UpdateText(Issue);
+
+        issuesOnTheList.Add(Issue, instance);
         NeueIssueTextAnimation(Issue);
     }
 

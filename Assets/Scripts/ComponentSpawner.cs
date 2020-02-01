@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+
 
 public class ComponentSpawner : MonoBehaviour
 {
@@ -8,24 +8,33 @@ public class ComponentSpawner : MonoBehaviour
     public List<Transform> SpawnTransforms;
     void Start()
     {
+        SpawnTransforms = SetChilds();
         IssueManager.Instance.OnIssueCreatetd += Instance_OnIssueCreatetd;
+    }
+
+    private List<Transform> SetChilds()
+    {
+        var childs = new List<Transform>();
+        foreach (Transform child in transform)
+            childs.Add(child);
+        return childs;
     }
 
     private void Instance_OnIssueCreatetd(Issue IssueEvent, List<RepairComponent> RepariComps)
     {
-        
+
         foreach (RepairComponent item in RepariComps)
         {
             var _spownTransform = SpawnTransforms[Random.Range(0, SpawnTransforms.Count)];
-            if(item.partName == IssueEvent.SeekedWord.Prefix)
+            if(item.partName == IssueEvent.seekedWord.Prefix)
             {
                 SetColor(Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity));
             }
-            if (item.partName == IssueEvent.SeekedWord.BaseWord)
+            if (item.partName == IssueEvent.seekedWord.BaseWord)
             {
                 SetColor(Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity));
             }
-            if (item.partName == IssueEvent.SeekedWord.Suffix)
+            if (item.partName == IssueEvent.seekedWord.Suffix)
             {
                 SetColor(Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity));
             }
@@ -44,11 +53,11 @@ public class ComponentSpawner : MonoBehaviour
         {
             instanz.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
         }
-        
+
     }
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

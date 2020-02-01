@@ -80,4 +80,9 @@ public class InGameEventManager : Singleton<InGameEventManager>
             //}
         }
     }
+
+    public List<BreakableObject> GetBreakableObjects()
+    {
+        return breakableObjects;
+    }
 }
