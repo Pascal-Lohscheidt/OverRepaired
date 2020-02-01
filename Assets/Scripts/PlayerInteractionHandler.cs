@@ -65,8 +65,8 @@ public class PlayerInteractionHandler : MonoBehaviour
     {
         if (currentObject == null)
         {
-            List<RepairComponent> componentsInScene = new List<RepairComponent>();
-            componentsInScene.AddRange(FindObjectsOfType<RepairComponent>());
+            List<PickAbleObject> componentsInScene = new List<PickAbleObject>();
+            componentsInScene.AddRange(FindObjectsOfType<PickAbleObject>());
             componentsInScene.RemoveAll(i => Vector3.Distance(i.transform.position, transform.position) > 2f);
 
             RepairComponent componentToPick = null;
@@ -111,6 +111,7 @@ public class PlayerInteractionHandler : MonoBehaviour
         {
             holdingComponent.transform.SetParent(currentObject.transform);
         }
+
         holdingComponent = null;
     }
 
