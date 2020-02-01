@@ -65,18 +65,19 @@ public class InGameEventManager : Singleton<InGameEventManager>
             int i = Random.Range(0, breakableObjects.Count);
             var breakableObject = breakableObjects[i];
 
+            timeUntilNextEvent = timeBetweenEvents;
+
             if(!breakableObject.IsBroken())
             {
                 breakableObject.BreakObject();
-                timeUntilNextEvent = timeBetweenEvents;
             }
-            else
-            {
-                //Debug.Log("Already broken!");
+            //else
+            //{
+            //    //Debug.Log("Already broken!");
 
-                // previous object was already broken, find another one
-                CreateRandomEvent();
-            }
+            //    // previous object was already broken, find another one
+            //    CreateRandomEvent();
+            //}
         }
     }
 }

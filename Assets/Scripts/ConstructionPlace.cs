@@ -13,6 +13,7 @@ public class ConstructionPlace : InteractableObject
 
     [HideInInspector] public List<RepairComponent> addedComponents;
     private ConstructedRepairComponent finishedRepairComponent;
+    [SerializeField] private GameObject constructedComponentPrefab;
     private float constructionTimer;
 
     [SerializeField] private Renderer renderer; 
@@ -65,6 +66,7 @@ public class ConstructionPlace : InteractableObject
     {
         ChangePhase(ConstructionPhase.Done);
         constructionTimer = 0;
+        finishedRepairComponent = Instantiate(constructedComponentPrefab, transform).GetComponent<ConstructedRepairComponent>();
         
         //TODO: Add instancaite method
 
