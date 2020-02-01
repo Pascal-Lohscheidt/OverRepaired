@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CameraFollowerToPlayer : MonoBehaviour
 {
-    public Transform Player;
-    public Vector3 Offfset;
+    public Transform player;
+    public Vector3 offset;
     public Vector3 currentVelocity;
-    public float Smooth;
-    public float MaxSpeed;
+    public float smooth;
+    public float maxSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class CameraFollowerToPlayer : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 target = Player.position + Offfset;
-        transform.position = Vector3.SmoothDamp(transform.position, target, ref currentVelocity, Smooth, MaxSpeed, Time.deltaTime);
+        Vector3 target = player.position + offset;
+        transform.position = Vector3.SmoothDamp(transform.position, target, ref currentVelocity, smooth, maxSpeed, Time.deltaTime);
     }
 }

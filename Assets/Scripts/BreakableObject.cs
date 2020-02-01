@@ -1,30 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class BreakableObject : MonoBehaviour
+public class BreakableObject : InteractableObject
 {
     public string objectName;
     public bool working = true;
-    private new Renderer renderer;
+    [SerializeField] private Renderer renderer;
 
     // Start is called before the first frame update
     void Start()
     {
         InGameEventManager.Instance.Register(this);
-        renderer = GetComponent<Renderer>();
         FixObject();
+        isContinuouslyInteractlable = false;
+        // You can look up the property by ID instead of the string to be more efficient.
     }
 
     public void FixObject()
     {
-        renderer.material.color = Color.green;
+        renderer.material.SetColor("_BaseColor", Color.green);
         working = true;
     }
 
     public void BreakObject()
     {
-        renderer.material.color = Color.red;
+        print("Broken: " + objectName);
+        renderer.material.SetColor("_BaseColor", Color.red);
+
         IssueManager.Instance.CreateIssue(this); //Creating a new Issue because this component Broke
         working = false;
     }
@@ -32,5 +33,34 @@ public class BreakableObject : MonoBehaviour
     public bool IsBroken()
     {
         return !working;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            PlayerInteractionHandler handler = other.gameObject.GetComponent<PlayerInteractionHandler>();
+            handler.EnterInteractionArea(this);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerInteractionHandler handler = other.gameObject.GetComponent<PlayerInteractionHandler>();
+            handler.LeaveInteractionArea();
+        }
+    }
+
+
+    public override void InteractOnce()
+    {
+        base.InteractOnce();
+        FixObject();
+    }
+
+    public override void InteractContinuously()
+    {
     }
 }

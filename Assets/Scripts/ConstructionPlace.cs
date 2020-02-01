@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class ConstructionPlace : MonoBehaviour
+public class ConstructionPlace : InteractableObject
 {
     public enum ConstructionPhase { Empty, Loaded, Constructing, Done}
     public ConstructionPhase currentPhase;
