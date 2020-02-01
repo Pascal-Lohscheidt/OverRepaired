@@ -69,7 +69,7 @@ public class PlayerInteractionHandler : MonoBehaviour
             componentsInScene.AddRange(FindObjectsOfType<PickAbleObject>());
             componentsInScene.RemoveAll(i => Vector3.Distance(i.transform.position, transform.position) > 2f);
 
-            RepairComponent componentToPick = null;
+            PickAbleObject componentToPick = null;
 
             if (componentsInScene.Count > 0)
                 componentToPick = componentsInScene.OrderBy(i => Vector3.Distance(i.transform.position, transform.position)).First();
