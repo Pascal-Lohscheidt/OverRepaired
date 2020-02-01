@@ -1,25 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
 public class ComponentSpawner : MonoBehaviour
 {
     // Start is called before the first frame update
-    public List<Transform> SpawnTransforms;
+    public List<SpownPointSpot> SpawnTransforms;
     void Start()
     {
-        SpawnTransforms = SetChilds();
+        SpawnTransforms = GetComponentsInChildren<SpownPointSpot>().ToList();
         IssueManager.Instance.OnIssueCreatetd += Instance_OnIssueCreatetd;
         IssueManager.Instance.OnWrongCreation += CreatMissingReapirComponents;
     }
 
     private void CreatMissingReapirComponents(List<RepairComponent> missingObj, List<RepairComponent> RepariComps)
     {
-        var _spownTransform = SpawnTransforms[Random.Range(0, SpawnTransforms.Count)];
+        var ListOfPossibleSpownSpots = SpawnTransforms.Where(x => x.isSpawnSpotBussy).ToList();
         foreach (var prefap in RepariComps)
             foreach (var item in missingObj)
                 if (item.partName == prefap.partName)
-                    Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity);
+                {
+                    
+                    var _spownTransform = ListOfPossibleSpownSpots[UnityEngine.Random.Range(0, SpawnTransforms.Count)];
+                    Instantiate<RepairComponent>(item, _spownTransform.transform.position, Quaternion.identity);
+                }
     }
 
     private List<Transform> SetChilds()
@@ -71,3 +77,10 @@ public class ComponentSpawner : MonoBehaviour
 
     }
 }
+
+//[SerializeField]
+//public struct SpownPoint
+//{
+//    Transform SpawnTransformsSpownPoint;
+
+//}

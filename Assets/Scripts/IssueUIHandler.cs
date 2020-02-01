@@ -42,7 +42,7 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
     {
         MainText.text = SetFixedText(Needings);
         MainText.gameObject.SetActive(true);
-        CurrentAnimation = transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
+        CurrentAnimation = MainText.transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
     }
 
     private void NeueIssueTextAnimation(Issue Needings)
@@ -52,7 +52,7 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
         // ScaleUP
         MainText.transform.DOScale(TargetScale, ShakeAnimationDuration);
         // Rotation
-        CurrentAnimation = transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
+        CurrentAnimation = MainText.transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
     }
 
     void CheckIfRunningOtherwiseDisable()
