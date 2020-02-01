@@ -68,7 +68,7 @@ public class ConstructionPlace : InteractableObject
         constructionTimer = 0;
         finishedRepairComponent = Instantiate(constructedComponentPrefab, transform).GetComponent<ConstructedRepairComponent>();
         
-        //TODO: Add instancaite method
+        
 
     }
 

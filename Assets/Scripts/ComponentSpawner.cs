@@ -17,15 +17,15 @@ public class ComponentSpawner : MonoBehaviour
         foreach (RepairComponent item in RepariComps)
         {
             var _spownTransform = SpawnTransforms[Random.Range(0, SpawnTransforms.Count)];
-            if(item.PartName == IssueEvent.SeekedWord.Prefix)
+            if(item.partName == IssueEvent.SeekedWord.Prefix)
             {
                 SetColor(Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity));
             }
-            if (item.PartName == IssueEvent.SeekedWord.BaseWord)
+            if (item.partName == IssueEvent.SeekedWord.BaseWord)
             {
                 SetColor(Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity));
             }
-            if (item.PartName == IssueEvent.SeekedWord.Suffix)
+            if (item.partName == IssueEvent.SeekedWord.Suffix)
             {
                 SetColor(Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity));
             }
