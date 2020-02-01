@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BreakableObject : MonoBehaviour
 {
+    public string objectName;
     public bool working = true;
 
     // Start is called before the first frame update
