@@ -6,12 +6,21 @@ public class PickAbleObject : MonoBehaviour
 {
     private new Renderer renderer;
     private Rigidbody rigidbody;
+    public string partName;
 
 
     private void Awake()
     {
         renderer = GetComponent<Renderer>();
         rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private HUDIconHandler iconHandler;
+
+    protected virtual void Start()
+    {
+        iconHandler = GetComponent<HUDIconHandler>();
+        iconHandler.UpdateText(partName);
     }
 
     public void ToggleVisibility(bool visible)

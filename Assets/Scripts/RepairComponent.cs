@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class RepairComponent : PickAbleObject
 {
-    public string partName;
-<<<<<<< HEAD
     public static List<RepairComponent> Instances { get; private set; } = new List<RepairComponent>();
     int instanceIndex = 0;
 
@@ -12,6 +10,10 @@ public class RepairComponent : PickAbleObject
     {
         instanceIndex = Instances.Count;
         Instances.Add(this);
+    }
+    protected override void Start()
+    {
+        base.Start();
     }
 
     protected virtual void OnDisable()
@@ -22,13 +24,5 @@ public class RepairComponent : PickAbleObject
             Instances[instanceIndex] = Instances[end];
             Instances.RemoveAt(end);
         }
-=======
-    private HUDIconHandler iconHandler;
-
-    private void Start()
-    {
-        iconHandler = GetComponent<HUDIconHandler>();
-        iconHandler.UpdateText(partName);
->>>>>>> babd530a77f0c77206906c4223e77a3fd749dad2
     }
 }
