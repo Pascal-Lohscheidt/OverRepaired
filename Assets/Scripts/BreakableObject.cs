@@ -11,6 +11,7 @@ public class BreakableObject : InteractableObject
     {
         InGameEventManager.Instance.Register(this);
         FixObject();
+        isContinuouslyInteractlable = false;
         // You can look up the property by ID instead of the string to be more efficient.
     }
 
@@ -48,7 +49,18 @@ public class BreakableObject : InteractableObject
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerInteractionHandler handler = other.gameObject.GetComponent<PlayerInteractionHandler>();
-            handler.LeaveInteractionArea(this);
+            handler.LeaveInteractionArea();
         }
+    }
+
+
+    public override void InteractOnce()
+    {
+        base.InteractOnce();
+        FixObject();
+    }
+
+    public override void InteractContinuously()
+    {
     }
 }

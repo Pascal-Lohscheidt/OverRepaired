@@ -16,7 +16,7 @@ public class PlayerInteractionHandler : MonoBehaviour
         isInInteractionArea = true;
     }
 
-    public void LeaveInteractionArea(InteractableObject interactableObject)
+    public void LeaveInteractionArea()
     {
         currentObject = null;
         isInInteractionArea = false;
@@ -25,14 +25,18 @@ public class PlayerInteractionHandler : MonoBehaviour
 
     public void Update()
     {
-        if(!currentObject.isContinuouslyInteractlable)
+        if (currentObject != null)
         {
-
-        }
-
-        if(Input.GetKey(KeyCode.A) && currentObject != null && isInInteractionArea)
-        {
-            currentObject.InteractOnce();
+            if (currentObject.isContinuouslyInteractlable)
+            {
+                if (Input.GetKey(KeyCode.E) && isInInteractionArea)
+                    currentObject.InteractContinuously();
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.E) && isInInteractionArea)
+                    currentObject.InteractOnce();
+            }
         }
     }
 }
