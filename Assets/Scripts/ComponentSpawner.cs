@@ -10,6 +10,16 @@ public class ComponentSpawner : MonoBehaviour
     {
         SpawnTransforms = SetChilds();
         IssueManager.Instance.OnIssueCreatetd += Instance_OnIssueCreatetd;
+        IssueManager.Instance.OnWrongCreation += CreatMissingReapirComponents;
+    }
+
+    private void CreatMissingReapirComponents(List<RepairComponent> missingObj, List<RepairComponent> RepariComps)
+    {
+        var _spownTransform = SpawnTransforms[Random.Range(0, SpawnTransforms.Count)];
+        foreach (var prefap in RepariComps)
+            foreach (var item in missingObj)
+                if (item.partName == prefap.partName)
+                    Instantiate<RepairComponent>(item, _spownTransform.position, Quaternion.identity);
     }
 
     private List<Transform> SetChilds()

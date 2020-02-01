@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +10,7 @@ public class IssueManager : Singleton<IssueManager>
     public Dictionary<BreakableObject, Issue> currentIssueList;
     public event UnityAction<Issue, List<RepairComponent>> OnIssueCreatetd;
     public event UnityAction<Issue, BreakableObject> OnIssueFixed;
-    public event UnityAction<List<RepairComponent>> OnWrongCreation;
+    public event UnityAction<List<RepairComponent>, List<RepairComponent>> OnWrongCreation;
     public WordGenerator WordGen;
     public List<RepairComponent> AllRepairComponentPrefaps;
 
@@ -34,6 +35,7 @@ public class IssueManager : Singleton<IssueManager>
 
     internal void CaseCompindingNotNeeded(List<RepairComponent> addedComponents)
     {
-        OnWrongCreation(addedComponents);
+        var Missing = RepairComponent.Instances.Intersect(addedComponents).ToList();
+        OnWrongCreation(Missing, AllRepairComponentPrefaps);
     }
 }
