@@ -65,7 +65,7 @@ public class InGameEventManager : Singleton<InGameEventManager>
             int i = Random.Range(0, breakableObjects.Count);
             // get random item from the list
             int counter = 0;
-            while(Time.unscaledTime - breakableObjects[i].lastTimeFixed < minTimeAfterFix && counter < 3)
+            while(Time.unscaledTime - breakableObjects[i].lastTimeFixed < minTimeAfterFix && counter < 2)
             {
                 i = Random.Range(0, breakableObjects.Count);
                 counter++;

@@ -10,7 +10,7 @@ public class ResourceManager : Singleton<ResourceManager>
     public Slider LifeSupportBar;
 
     private int damagePerBrokenObject = 2;
-    private int recoveryDamageAmount = 1;
+    private int recoveryDamageAmount = 2;
     private float damageCheckInterval = 2f;
     float nextCheckTime = 2f;
 
