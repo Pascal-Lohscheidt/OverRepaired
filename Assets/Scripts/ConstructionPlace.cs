@@ -40,6 +40,7 @@ public class ConstructionPlace : InteractableObject
     {
         if(addedComponents.Count < maxAmountOfComponents)
         {
+            component.SetUnpickable();
             addedComponents.Add(component);
             component.HideHUD();
             component.transform.SetParent(boxParent);
@@ -78,6 +79,8 @@ public class ConstructionPlace : InteractableObject
     {
         ChangePhase(ConstructionPhase.Done);
         constructionTimer = 0;
+
+        anim.enabled = false;
         CameraFollowerToPlayer.Instance.ToggleZoomBehaviour(false);
         //anim.enabled = false;
         finishedRepairComponent = Instantiate(constructedComponentPrefab, boxParent.position, boxParent.rotation, null).GetComponent<ConstructedRepairComponent>();

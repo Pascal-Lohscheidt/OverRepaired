@@ -74,13 +74,17 @@ public class PlayerInteractionHandler : MonoBehaviour
             if (componentsInScene.Count > 0)
                 componentToPick = componentsInScene.OrderBy(i => Vector3.Distance(i.transform.position, transform.position)).First();
 
-            if (componentToPick != null)
+            if (componentToPick != null && componentToPick.pickable)
             {
                 holdingComponent = componentToPick;
                 holdingComponent.transform.SetParent(transform);
                 holdingComponent.gameObject.SetActive(true);
                 holdingComponent.transform.position = holdingTransform.position;
                 holdingComponent.SetAffectedByGravity(false);
+            }
+            else
+            {
+                componentToPick = null;
             }
         }
         else

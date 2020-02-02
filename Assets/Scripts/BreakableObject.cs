@@ -8,6 +8,7 @@ public class BreakableObject : InteractableObject
     public Issue currentIssue;
     public float lastTimeFixed;
     private HUDIconHandler iconHandler;
+    [SerializeField] private ParticleSystem particleSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +29,13 @@ public class BreakableObject : InteractableObject
         working = true;
         iconHandler.HideText();
         lastTimeFixed = Time.unscaledTime;
+        particleSystem.Stop();
     }
 
     public void BreakObject()
     {
         print("Broken: " + objectName);
+        particleSystem.Play();
         //renderer.material.SetColor("_BaseColor", Color.red);
         iconHandler.UpdateText("FixMe");
         iconHandler.SetTextSize(45f);
