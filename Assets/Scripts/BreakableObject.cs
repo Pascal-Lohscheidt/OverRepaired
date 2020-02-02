@@ -52,6 +52,7 @@ public class BreakableObject : InteractableObject
             ConstructedRepairComponent newComponent = (ConstructedRepairComponent)pickAbleObject;
             if (currentIssue.seekedWord.ToString() == newComponent.partName)
             {
+                Destroy(newComponent.gameObject);
                 FixObject();
                 return true;
             }

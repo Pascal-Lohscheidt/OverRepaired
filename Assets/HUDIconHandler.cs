@@ -4,7 +4,7 @@ using TMPro;
 public class HUDIconHandler : MonoBehaviour
 {
     private Transform HUDIconParent;
-    [SerializeField] private bool dependsOnDistance;
+    public bool dependsOnDistance;
     [SerializeField] private int showTextDistance;
     private Transform playerTransform;
     private TextMeshProUGUI hudText;
@@ -23,10 +23,13 @@ public class HUDIconHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(playerTransform.position, transform.position) > showTextDistance)
-            HideText();
-        else
-            ShowText();
+        if (dependsOnDistance)
+        {
+            if (Vector3.Distance(playerTransform.position, transform.position) > showTextDistance)
+                HideText();
+            else
+                ShowText();
+        }
 
         hudText.rectTransform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1.3f, 0));
     }
@@ -37,12 +40,12 @@ public class HUDIconHandler : MonoBehaviour
         hudText.text = text;
     }
 
-    private void HideText()
+    public void HideText()
     {
         hudText.gameObject.SetActive(false);
     }
 
-    private void ShowText()
+    public void ShowText()
     {
         hudText.gameObject.SetActive(true);
     }
