@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: core
+  componentType: 1
 --- !u!114 &-1152928362208384709
 MonoBehaviour:
   m_ObjectHideFlags: 0

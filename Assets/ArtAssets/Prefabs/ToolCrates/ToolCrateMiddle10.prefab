@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: filter
+  componentType: 1
 --- !u!114 &-7725243456305453308
 MonoBehaviour:
   m_ObjectHideFlags: 0

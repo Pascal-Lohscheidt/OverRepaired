@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: engine
+  componentType: 1
 --- !u!114 &7810828297365768349
 MonoBehaviour:
   m_ObjectHideFlags: 0

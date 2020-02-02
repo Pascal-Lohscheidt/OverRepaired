@@ -4,6 +4,8 @@ using UnityEngine;
 public class RepairComponent : PickAbleObject
 {
     public static List<RepairComponent> Instances { get; private set; } = new List<RepairComponent>();
+    public enum ComponentType { Bottom, Middle, Top};
+    public ComponentType componentType;
     int instanceIndex = 0;
 
     protected virtual void OnEnable()

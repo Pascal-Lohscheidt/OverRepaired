@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: instrument
+  componentType: 1
 --- !u!114 &1372064092629536092
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: chip
+  componentType: 1
 --- !u!114 &-2159288432613414168
 MonoBehaviour:
   m_ObjectHideFlags: 0

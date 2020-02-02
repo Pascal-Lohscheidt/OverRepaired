@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: communicator
+  componentType: 1
 --- !u!114 &8027378704651162113
 MonoBehaviour:
   m_ObjectHideFlags: 0

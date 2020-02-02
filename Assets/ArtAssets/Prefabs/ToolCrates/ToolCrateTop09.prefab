@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: sonator
+  componentType: 2
 --- !u!114 &-8055602828026173293
 MonoBehaviour:
   m_ObjectHideFlags: 0

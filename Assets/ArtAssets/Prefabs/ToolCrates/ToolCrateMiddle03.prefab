@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: chamber
+  componentType: 1
 --- !u!114 &-7528364005081345680
 MonoBehaviour:
   m_ObjectHideFlags: 0

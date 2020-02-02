@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: composite
+  componentType: 2
 --- !u!114 &-1637082340180112399
 MonoBehaviour:
   m_ObjectHideFlags: 0

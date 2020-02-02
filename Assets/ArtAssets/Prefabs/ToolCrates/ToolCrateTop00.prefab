@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: device
+  componentType: 2
 --- !u!114 &-2916167905048053902
 MonoBehaviour:
   m_ObjectHideFlags: 0
