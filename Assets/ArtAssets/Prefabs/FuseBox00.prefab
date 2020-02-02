@@ -31,7 +31,8 @@ Transform:
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1763680772917509161}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
@@ -123,6 +124,87 @@ MonoBehaviour:
   isContinuouslyInteractlable: 0
   objectName: Life Support Fuse
   working: 1
-  renderer: {fileID: 0}
   resourceType: 1
   lastTimeFixed: 0
+  particleSystem: {fileID: 1763680772917509166}
+--- !u!1001 &380508101981854074
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1956165090109087058}
+    m_Modifications:
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.051
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.278
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.28863806
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.32564
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.32564044
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.83940756
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 15.812
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -49.780003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -49.780003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347542, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_Name
+      value: CloudsASparks
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a51133fa0522174e91018f77d1a0291, type: 3}
+--- !u!4 &1763680772917509161 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+    type: 3}
+  m_PrefabInstance: {fileID: 380508101981854074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1763680772917509166 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2107135195175347540, guid: 2a51133fa0522174e91018f77d1a0291,
+    type: 3}
+  m_PrefabInstance: {fileID: 380508101981854074}
+  m_PrefabAsset: {fileID: 0}

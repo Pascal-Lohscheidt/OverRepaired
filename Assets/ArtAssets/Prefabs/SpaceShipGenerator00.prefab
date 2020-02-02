@@ -12,12 +12,14 @@ GameObject:
   - component: {fileID: 5222518230059292698}
   - component: {fileID: 1965422955154662627}
   - component: {fileID: 6027716799571480802}
+  - component: {fileID: 1422087770}
+  - component: {fileID: 1422087771}
   m_Layer: 0
   m_Name: SpaceShipGenerator00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3828369848243626540
 Transform:
@@ -29,7 +31,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 63605239723278431}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -94,3 +97,115 @@ CapsuleCollider:
   m_Height: 8
   m_Direction: 1
   m_Center: {x: 0, y: 1.4868785, z: 0}
+--- !u!135 &1422087770
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250587285726580799}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.2
+  m_Center: {x: 0, y: -0.41, z: 0}
+--- !u!114 &1422087771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250587285726580799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3aa6afd658b4a97874727330f8ff78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isContinuouslyInteractlable: 0
+  objectName: Energy Core
+  working: 1
+  resourceType: 2
+  lastTimeFixed: 0
+  particleSystem: {fileID: 63605239723278424}
+--- !u!1001 &2152708437692720396
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3828369848243626540}
+    m_Modifications:
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107135195175347542, guid: 2a51133fa0522174e91018f77d1a0291,
+        type: 3}
+      propertyPath: m_Name
+      value: CloudsASparks
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a51133fa0522174e91018f77d1a0291, type: 3}
+--- !u!4 &63605239723278431 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2107135195175347539, guid: 2a51133fa0522174e91018f77d1a0291,
+    type: 3}
+  m_PrefabInstance: {fileID: 2152708437692720396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &63605239723278424 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2107135195175347540, guid: 2a51133fa0522174e91018f77d1a0291,
+    type: 3}
+  m_PrefabInstance: {fileID: 2152708437692720396}
+  m_PrefabAsset: {fileID: 0}
