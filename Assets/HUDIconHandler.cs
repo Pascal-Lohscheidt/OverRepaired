@@ -34,6 +34,15 @@ public class HUDIconHandler : MonoBehaviour
         hudText.rectTransform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1.3f, 0));
     }
 
+    public void SetTextSize(float size)
+    {
+        hudText.fontSize = size;
+    }
+
+    public void SetColor(Color color)
+    {
+        hudText.faceColor = color;
+    }
 
     public void UpdateText(string text)
     {
