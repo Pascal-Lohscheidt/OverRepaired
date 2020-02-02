@@ -13,9 +13,11 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
     public float ShakeAnimationDuration = 0.5f;
     public float TargetScale = 2f;
     Tween CurrentAnimation;
+    AudioSource audio;
 
     private void Start()
     {
+        audio = MainText.GetComponent<AudioSource>();
         IssueManager.Instance.OnIssueCreatetd += Instance_OnIssueCreatetd;
         IssueManager.Instance.OnIssueFixed += Instance_OnIssueFixed;
         MainText.transform.localScale = Vector3.zero;
@@ -43,12 +45,14 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
         MainText.text = SetNewIssueText(Needings);
         MainText.gameObject.SetActive(true);
         CurrentAnimation = MainText.transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
+        audio.PlayDelayed(0.3f);
     }
 
     private void NeueIssueTextAnimation(Issue Needings)
     {
         MainText.text = SetFixedText(Needings);
         MainText.gameObject.SetActive(true);
+        audio.PlayDelayed(0.3f);
         // ScaleUP
         MainText.transform.DOScale(TargetScale, ShakeAnimationDuration);
         // Rotation
