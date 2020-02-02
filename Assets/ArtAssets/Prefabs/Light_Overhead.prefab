@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3818095502137347223}
   - component: {fileID: 4386040499977536252}
+  - component: {fileID: 2779281943401641741}
+  - component: {fileID: 7059644284589660664}
   m_Layer: 0
   m_Name: Light_Overhead
   m_TagString: Untagged
@@ -92,3 +94,28 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!135 &2779281943401641741
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2192450097957994368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 7
+  m_Center: {x: 0, y: 0, z: 1}
+--- !u!114 &7059644284589660664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2192450097957994368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4653f735de7544a598f31d2939463e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

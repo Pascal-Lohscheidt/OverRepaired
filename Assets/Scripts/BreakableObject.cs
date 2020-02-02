@@ -4,7 +4,6 @@ public class BreakableObject : InteractableObject
 {
     public string objectName;
     public bool working = true;
-    [SerializeField] private Renderer renderer;
     [SerializeField] public Resource.ResourceType resourceType;
     public Issue currentIssue;
     public float lastTimeFixed;
@@ -13,7 +12,7 @@ public class BreakableObject : InteractableObject
     void Start()
     {
         InGameEventManager.Instance.Register(this);
-        renderer.material.SetColor("_BaseColor", Color.green);
+        //renderer.material.SetColor("_BaseColor", Color.green);
         working = true;
         isContinuouslyInteractlable = false;
         // You can look up the property by ID instead of the string to be more efficient.
@@ -22,7 +21,7 @@ public class BreakableObject : InteractableObject
     public void FixObject()
     {
         IssueManager.Instance.IssueFixed(this); //Creating a new Issue because this component Broke
-        renderer.material.SetColor("_BaseColor", Color.green);
+        //renderer.material.SetColor("_BaseColor", Color.green);
         working = true;
         lastTimeFixed = Time.unscaledTime;
     }
@@ -30,7 +29,7 @@ public class BreakableObject : InteractableObject
     public void BreakObject()
     {
         print("Broken: " + objectName);
-        renderer.material.SetColor("_BaseColor", Color.red);
+        //renderer.material.SetColor("_BaseColor", Color.red);
 
         currentIssue = IssueManager.Instance.CreateIssue(this); //Creating a new Issue because this component Broke
         working = false;

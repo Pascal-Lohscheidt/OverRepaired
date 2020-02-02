@@ -17,7 +17,7 @@ public class ConstructionPlace : InteractableObject
     [SerializeField] private GameObject constructedComponentPrefab;
     private float constructionTimer;
 
-    [SerializeField] private Renderer renderer; 
+    //[SerializeField] private Renderer renderer; 
 
 
     // Start is called before the first frame update
@@ -138,21 +138,21 @@ public class ConstructionPlace : InteractableObject
     private void ChangePhase(ConstructionPhase newPhase)
     {
         currentPhase = newPhase;
-        switch (newPhase)
-        {
-            case ConstructionPhase.Empty:
-                renderer.material.SetColor("_BaseColor", Color.red);
-                break;
-            case ConstructionPhase.Loaded:
-                renderer.material.SetColor("_BaseColor", Color.yellow);
-                break;
-            case ConstructionPhase.Constructing:
-                renderer.material.SetColor("_BaseColor", Color.blue);
-                break;
-            case ConstructionPhase.Done:
-                renderer.material.SetColor("_BaseColor", Color.green);
-                break;
-        }
+        //switch (newPhase)
+        //{
+        //    case ConstructionPhase.Empty:
+        //        renderer.material.SetColor("_BaseColor", Color.red);
+        //        break;
+        //    case ConstructionPhase.Loaded:
+        //        renderer.material.SetColor("_BaseColor", Color.yellow);
+        //        break;
+        //    case ConstructionPhase.Constructing:
+        //        renderer.material.SetColor("_BaseColor", Color.blue);
+        //        break;
+        //    case ConstructionPhase.Done:
+        //        renderer.material.SetColor("_BaseColor", Color.green);
+        //        break;
+        //}
     }
 
 }
