@@ -58,4 +58,9 @@ public class Resource
             resourceBar.value = statusValue;
         }
     }
+
+    public void FillResource()
+    {
+        statusValue = 100;
+    }
 }
