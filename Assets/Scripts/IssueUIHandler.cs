@@ -13,9 +13,11 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
     public float ShakeAnimationDuration = 0.5f;
     public float TargetScale = 2f;
     Tween CurrentAnimation;
+    AudioSource audio;
 
     private void Start()
     {
+        audio = MainText.GetComponent<AudioSource>();
         IssueManager.Instance.OnIssueCreatetd += Instance_OnIssueCreatetd;
         IssueManager.Instance.OnIssueFixed += Instance_OnIssueFixed;
         MainText.transform.localScale = Vector3.zero;
@@ -40,15 +42,17 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
 
     private void FixedTextAnimation(Issue Needings)
     {
-        MainText.text = SetFixedText(Needings);
+        MainText.text = SetNewIssueText(Needings);
         MainText.gameObject.SetActive(true);
         CurrentAnimation = MainText.transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
+        audio.PlayDelayed(0.3f);
     }
 
     private void NeueIssueTextAnimation(Issue Needings)
     {
-        MainText.text = SetNewIssueText(Needings);
+        MainText.text = SetFixedText(Needings);
         MainText.gameObject.SetActive(true);
+        audio.PlayDelayed(0.3f);
         // ScaleUP
         MainText.transform.DOScale(TargetScale, ShakeAnimationDuration);
         // Rotation
@@ -60,8 +64,11 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
         if (CurrentAnimation != null)
         {
             // ScaleDown
-            MainText.transform.DOScale(0f, ShakeAnimationDuration).OnComplete(
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.PrependInterval(3);
+            var roll = MainText.transform.DOScale(0f, ShakeAnimationDuration).OnComplete(
                 ()=> MainText.gameObject.SetActive(false));
+            mySequence.Append(roll);
         }
     }
 

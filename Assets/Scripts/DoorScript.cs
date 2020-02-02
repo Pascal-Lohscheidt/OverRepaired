@@ -27,6 +27,11 @@ public class DoorScript : MonoBehaviour
             doorLAnim.SetInteger("doorState", 0);
             doorRAnim.Rebind();
             doorRAnim.SetInteger("doorState", 0);
+<<<<<<< HEAD
+=======
+            Debug.Log("OnTriggerEnter Player is here, open the door!");
+            AudioManager.Instance.PlaySound("alert2");
+>>>>>>> NightWork
         }
     }
 
@@ -38,6 +43,11 @@ public class DoorScript : MonoBehaviour
             doorLAnim.SetInteger("doorState", 1);
             doorRAnim.Rebind();
             doorRAnim.SetInteger("doorState", 1);
+<<<<<<< HEAD
+=======
+            //AudioManager.Instance.PlaySound("alert3");
+            Debug.Log("OnTriggerExit Player left, close the door!");
+>>>>>>> NightWork
         }
     }
 }
