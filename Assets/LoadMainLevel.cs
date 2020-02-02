@@ -7,6 +7,7 @@ public class LoadMainLevel : MonoBehaviour
 
     public void LoadMainLevelNow()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(1);
     }
 
