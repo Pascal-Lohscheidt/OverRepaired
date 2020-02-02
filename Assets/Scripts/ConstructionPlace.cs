@@ -38,7 +38,10 @@ public class ConstructionPlace : InteractableObject
         if(addedComponents.Count < maxAmountOfComponents)
         {
             addedComponents.Add(component);
+            component.HideHUD();
             component.transform.SetParent(boxParent);
+            component.transform.position = boxParent.position;
+            component.transform.rotation = boxParent.rotation;
             component.SetAffectedByGravity(false);
             ChangePhase(ConstructionPhase.Loaded);
             return true;
@@ -70,7 +73,17 @@ public class ConstructionPlace : InteractableObject
     {
         ChangePhase(ConstructionPhase.Done);
         constructionTimer = 0;
-        finishedRepairComponent = Instantiate(constructedComponentPrefab, transform).GetComponent<ConstructedRepairComponent>();
+        finishedRepairComponent = Instantiate(constructedComponentPrefab, boxParent.position, boxParent.rotation, null).GetComponent<ConstructedRepairComponent>();
+
+        foreach (RepairComponent comp in addedComponents)
+        {
+            comp.transform.SetParent(finishedRepairComponent.transform);
+            comp.transform.position = finishedRepairComponent.transform.position;
+            comp.transform.rotation = finishedRepairComponent.transform.rotation;
+            Destroy(comp.GetComponent<Rigidbody>());
+            Destroy(comp);
+        }
+
 
         string cName = "";
 

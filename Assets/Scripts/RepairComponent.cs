@@ -25,4 +25,10 @@ public class RepairComponent : PickAbleObject
             Instances.RemoveAt(end);
         }
     }
+
+    public void HideHUD()
+    {
+        iconHandler.HideText();
+        iconHandler.dependsOnDistance = false;
+    }
 }
