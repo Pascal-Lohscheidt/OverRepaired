@@ -7,6 +7,7 @@ public class BreakableObject : InteractableObject
     [SerializeField] public Resource.ResourceType resourceType;
     public Issue currentIssue;
     public float lastTimeFixed;
+    private HUDIconHandler iconHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,8 @@ public class BreakableObject : InteractableObject
         //renderer.material.SetColor("_BaseColor", Color.green);
         working = true;
         isContinuouslyInteractlable = false;
+        iconHandler = gameObject.AddComponent<HUDIconHandler>();
+        iconHandler.dependsOnDistance = false;
         // You can look up the property by ID instead of the string to be more efficient.
     }
 
@@ -23,6 +26,7 @@ public class BreakableObject : InteractableObject
         IssueManager.Instance.IssueFixed(this); //Creating a new Issue because this component Broke
         //renderer.material.SetColor("_BaseColor", Color.green);
         working = true;
+        iconHandler.HideText();
         lastTimeFixed = Time.unscaledTime;
     }
 
@@ -30,7 +34,10 @@ public class BreakableObject : InteractableObject
     {
         print("Broken: " + objectName);
         //renderer.material.SetColor("_BaseColor", Color.red);
-
+        iconHandler.UpdateText("FixMe");
+        iconHandler.SetTextSize(45f);
+        iconHandler.SetColor(Color.red);
+        iconHandler.ShowText();
         currentIssue = IssueManager.Instance.CreateIssue(this); //Creating a new Issue because this component Broke
         working = false;
     }

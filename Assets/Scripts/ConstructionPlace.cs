@@ -11,6 +11,7 @@ public class ConstructionPlace : InteractableObject
 
     public Sprite partsRequiredSprite;
     public Sprite doneSprite;
+    [SerializeField] private Animator anim;
 
     [HideInInspector] public List<RepairComponent> addedComponents;
     private ConstructedRepairComponent finishedRepairComponent;
@@ -25,6 +26,8 @@ public class ConstructionPlace : InteractableObject
     void Start()
     {
         ChangePhase(ConstructionPhase.Empty);
+        anim = GetComponent<Animator>();
+        anim.enabled = false;
         isContinuouslyInteractlable = true;
     }
 
@@ -59,6 +62,8 @@ public class ConstructionPlace : InteractableObject
         if (currentPhase != ConstructionPhase.Done)
         {
             constructionTimer += Time.deltaTime;
+            anim.enabled = true;
+            CameraFollowerToPlayer.Instance.ToggleZoomBehaviour(true);
             ChangePhase(ConstructionPhase.Constructing);
             if (constructionTimer >= constructionDuration)
             {
@@ -73,6 +78,8 @@ public class ConstructionPlace : InteractableObject
     {
         ChangePhase(ConstructionPhase.Done);
         constructionTimer = 0;
+        CameraFollowerToPlayer.Instance.ToggleZoomBehaviour(false);
+        //anim.enabled = false;
         finishedRepairComponent = Instantiate(constructedComponentPrefab, boxParent.position, boxParent.rotation, null).GetComponent<ConstructedRepairComponent>();
 
         foreach (RepairComponent comp in addedComponents)
@@ -102,6 +109,8 @@ public class ConstructionPlace : InteractableObject
     public void CancelConstruction()
     {
         constructionTimer = 0;
+        anim.enabled = false;
+        CameraFollowerToPlayer.Instance.ToggleZoomBehaviour(false);
 
         if (currentPhase != ConstructionPhase.Done)
         {
