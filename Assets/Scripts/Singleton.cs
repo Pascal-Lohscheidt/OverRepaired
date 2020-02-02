@@ -41,7 +41,7 @@ public class Singleton<T> : MonoBehaviour where T : Component
 
             // Making sure that my Singleton instance
             // will persist in memory across every scene.
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
         else
         {
