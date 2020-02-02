@@ -38,7 +38,8 @@ public class ConstructionPlace : InteractableObject
         if(addedComponents.Count < maxAmountOfComponents)
         {
             addedComponents.Add(component);
-            component.gameObject.GetComponent<Renderer>().enabled = false;
+            component.transform.SetParent(boxParent);
+            component.SetAffectedByGravity(false);
             ChangePhase(ConstructionPhase.Loaded);
             return true;
         }

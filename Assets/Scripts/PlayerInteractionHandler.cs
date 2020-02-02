@@ -21,7 +21,6 @@ public class PlayerInteractionHandler : MonoBehaviour
         {
             if (currentObject.isContinuouslyInteractlable)
             {
-                print("enterd");
                 if (Input.GetKey(KeyCode.E) && isInInteractionArea && !doneWithCurrentInteraction)
                     currentObject.InteractContinuously(this);
                 else
@@ -110,7 +109,7 @@ public class PlayerInteractionHandler : MonoBehaviour
         }
         else if(currentObject.AddPickableComponent(holdingComponent)) 
         {
-            Destroy(holdingComponent.gameObject);
+
         }
 
         holdingComponent = null;
