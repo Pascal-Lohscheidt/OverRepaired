@@ -2180,7 +2180,12 @@ PrefabInstance:
     - target: {fileID: 8184924057818595964, guid: 110869839d9f7478fb769e6461ac09c1,
         type: 3}
       propertyPath: offset.z
-      value: -9
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184924057818595964, guid: 110869839d9f7478fb769e6461ac09c1,
+        type: 3}
+      propertyPath: offsetForTop.y
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8184924057818595966, guid: 110869839d9f7478fb769e6461ac09c1,
         type: 3}
@@ -6979,7 +6984,7 @@ AudioSource:
   m_Volume: 0.42
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -10647,7 +10652,7 @@ GameObject:
   - component: {fileID: 6739663675338093488}
   - component: {fileID: 25476731653491252}
   - component: {fileID: 4459349999141000087}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

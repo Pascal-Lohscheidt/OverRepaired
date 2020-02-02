@@ -84,7 +84,6 @@ public class ConstructionPlace : InteractableObject
             Destroy(comp);
         }
 
-
         string cName = "";
 
         if (IssueManager.Instance.currentIssueList.Values.ToList().Exists(i => i.ComponentsMatchIssue(addedComponents)))
