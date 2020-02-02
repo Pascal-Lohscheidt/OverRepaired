@@ -27,7 +27,6 @@ public class DoorScript : MonoBehaviour
             doorLAnim.SetInteger("doorState", 0);
             doorRAnim.Rebind();
             doorRAnim.SetInteger("doorState", 0);
-            Debug.Log("OnTriggerEnter Player is here, open the door!");
         }
     }
 
@@ -39,8 +38,6 @@ public class DoorScript : MonoBehaviour
             doorLAnim.SetInteger("doorState", 1);
             doorRAnim.Rebind();
             doorRAnim.SetInteger("doorState", 1);
-
-            Debug.Log("OnTriggerExit Player left, close the door!");
         }
     }
 }
