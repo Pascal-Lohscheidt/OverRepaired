@@ -37,7 +37,7 @@ public class GamePhaseManager : Singleton<GamePhaseManager>
     {
         loseScreen.SetActive(true);
         Time.timeScale = 0;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSecondsRealtime(5f);
         ExitGameToMenu();
     }
 }
