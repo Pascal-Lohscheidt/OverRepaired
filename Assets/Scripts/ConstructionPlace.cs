@@ -16,6 +16,7 @@ public class ConstructionPlace : InteractableObject
     private ConstructedRepairComponent finishedRepairComponent;
     [SerializeField] private GameObject constructedComponentPrefab;
     private float constructionTimer;
+    [SerializeField] private Transform boxParent;
 
     //[SerializeField] private Renderer renderer; 
 
@@ -24,6 +25,7 @@ public class ConstructionPlace : InteractableObject
     void Start()
     {
         ChangePhase(ConstructionPhase.Empty);
+        isContinuouslyInteractlable = true;
     }
 
     /// <summary>
@@ -138,21 +140,6 @@ public class ConstructionPlace : InteractableObject
     private void ChangePhase(ConstructionPhase newPhase)
     {
         currentPhase = newPhase;
-        //switch (newPhase)
-        //{
-        //    case ConstructionPhase.Empty:
-        //        renderer.material.SetColor("_BaseColor", Color.red);
-        //        break;
-        //    case ConstructionPhase.Loaded:
-        //        renderer.material.SetColor("_BaseColor", Color.yellow);
-        //        break;
-        //    case ConstructionPhase.Constructing:
-        //        renderer.material.SetColor("_BaseColor", Color.blue);
-        //        break;
-        //    case ConstructionPhase.Done:
-        //        renderer.material.SetColor("_BaseColor", Color.green);
-        //        break;
-        //}
     }
 
 }
