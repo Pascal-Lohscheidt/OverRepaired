@@ -107,21 +107,21 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.1
+    agentRadius: 0.32
     agentHeight: 1
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.033333335
+    cellSize: 0.10666666
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 0067a93ae4818864b8b5b2c105989e56, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d286c1c18bfa69146af1b2bc93b97b91, type: 2}
 --- !u!1001 &1498653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2163,6 +2163,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 380867762}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &396732101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5517460821358025464, guid: f7e37e77e84afff4eb2a49f78804c88d,
+    type: 3}
+  m_PrefabInstance: {fileID: 481807766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &396732102
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396732101}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.74
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2.33
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &399280721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2597,7 +2625,7 @@ PrefabInstance:
     - target: {fileID: 5517460821358025348, guid: f7e37e77e84afff4eb2a49f78804c88d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5517460821358025348, guid: f7e37e77e84afff4eb2a49f78804c88d,
         type: 3}
@@ -2607,7 +2635,7 @@ PrefabInstance:
     - target: {fileID: 5517460821358025348, guid: f7e37e77e84afff4eb2a49f78804c88d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.36
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 5517460821358025348, guid: f7e37e77e84afff4eb2a49f78804c88d,
         type: 3}
@@ -3593,6 +3621,47 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341108280592627674, guid: 97d6563918868bc4497e99fc4c4464b3,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341108280592627674, guid: 97d6563918868bc4497e99fc4c4464b3,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b50364e0b105fe845ac5471f0c2e2f00,
+        type: 3}
+    - target: {fileID: 6341108280592627674, guid: 97d6563918868bc4497e99fc4c4464b3,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341108280592627674, guid: 97d6563918868bc4497e99fc4c4464b3,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.39198586
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341108280592627674, guid: 97d6563918868bc4497e99fc4c4464b3,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.19188325
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341108280592627674, guid: 97d6563918868bc4497e99fc4c4464b3,
+        type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341108280592627674, guid: 97d6563918868bc4497e99fc4c4464b3,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341108280592627674, guid: 97d6563918868bc4497e99fc4c4464b3,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6631969029642280198, guid: 97d6563918868bc4497e99fc4c4464b3,
         type: 3}
@@ -6009,6 +6078,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1253749432}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1286823123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5306141326233616226, guid: 97d6563918868bc4497e99fc4c4464b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 695767446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1286823127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286823123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &1303527214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6939,7 +7029,6 @@ MonoBehaviour:
   isContinuouslyInteractlable: 0
   objectName: Energy Core
   working: 1
-  renderer: {fileID: 0}
   resourceType: 2
   lastTimeFixed: 0
 --- !u!1 &1430265999
