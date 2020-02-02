@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollowerToPlayer : MonoBehaviour
+public class CameraFollowerToPlayer : Singleton<CameraFollowerToPlayer>
 {
     public Transform player;
     public Vector3 offset;
@@ -12,6 +12,8 @@ public class CameraFollowerToPlayer : MonoBehaviour
     private Quaternion topRot;
 
     private Quaternion normalRot;
+
+    private bool shouldZoomIn;
 
     public float smooth;
     public float maxSpeed;
@@ -38,5 +40,16 @@ public class CameraFollowerToPlayer : MonoBehaviour
             transform.position = Vector3.SmoothDamp(transform.position, target, ref currentVelocity, smooth, maxSpeed, Time.deltaTime);
             transform.rotation = Quaternion.Slerp(transform.rotation, normalRot, 0.2f * Time.deltaTime);
         }
+
+        if (shouldZoomIn)
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 15, 2f * Time.deltaTime);
+        else
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 60, 3f * Time.deltaTime);
     }
+
+    public void ToggleZoomBehaviour(bool toggle)
+    {
+        shouldZoomIn = toggle;
+    }
+
 }

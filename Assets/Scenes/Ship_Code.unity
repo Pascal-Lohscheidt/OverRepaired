@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 5fe649d55df2bac4585ebe481ec38119, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1722,35 +1722,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 179.99998
       objectReference: {fileID: 0}
-    - target: {fileID: 1069077156147393103, guid: c46cd207c331c7549bab126e6bbeee2d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.094
-      objectReference: {fileID: 0}
-    - target: {fileID: 1069077156147393103, guid: c46cd207c331c7549bab126e6bbeee2d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.094
-      objectReference: {fileID: 0}
-    - target: {fileID: 1069077156147393103, guid: c46cd207c331c7549bab126e6bbeee2d,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.094
-      objectReference: {fileID: 0}
     - target: {fileID: 5049732328737973327, guid: c46cd207c331c7549bab126e6bbeee2d,
         type: 3}
       propertyPath: m_Name
       value: Pipe00 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5049732328737973327, guid: c46cd207c331c7549bab126e6bbeee2d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5049732328737973327, guid: c46cd207c331c7549bab126e6bbeee2d,
-        type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c46cd207c331c7549bab126e6bbeee2d, type: 3}
@@ -2115,17 +2090,17 @@ PrefabInstance:
     - target: {fileID: 8184924057818595954, guid: 110869839d9f7478fb769e6461ac09c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.048576
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 8184924057818595954, guid: 110869839d9f7478fb769e6461ac09c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.014376
+      value: 2.11
       objectReference: {fileID: 0}
     - target: {fileID: 8184924057818595954, guid: 110869839d9f7478fb769e6461ac09c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.266127
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 8184924057818595954, guid: 110869839d9f7478fb769e6461ac09c1,
         type: 3}
@@ -2166,6 +2141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184924057818595955, guid: 110869839d9f7478fb769e6461ac09c1,
+        type: 3}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8184924057818595964, guid: 110869839d9f7478fb769e6461ac09c1,
         type: 3}
@@ -4451,6 +4431,68 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 898900863}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &952246179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 952246182}
+  - component: {fileID: 952246181}
+  - component: {fileID: 952246180}
+  m_Layer: 0
+  m_Name: AirLock_BO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &952246180
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952246179}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.66
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &952246181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952246179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3aa6afd658b4a97874727330f8ff78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isContinuouslyInteractlable: 0
+  objectName: Airlock
+  working: 1
+  resourceType: 0
+  lastTimeFixed: 0
+--- !u!4 &952246182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952246179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.55, y: 0.7, z: -0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &957756846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8919,6 +8961,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1741856590}
     m_Modifications:
+    - target: {fileID: 204873049443039660, guid: 4e0fc9745499e9e49b2eedce6d92e5ed,
+        type: 3}
+      propertyPath: constructionDuration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1854595793341573118, guid: 4e0fc9745499e9e49b2eedce6d92e5ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9745,6 +9792,68 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1975565384}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1988335393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1988335396}
+  - component: {fileID: 1988335395}
+  - component: {fileID: 1988335394}
+  m_Layer: 0
+  m_Name: AirLock_BO (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &1988335394
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988335393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.66
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1988335395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988335393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3aa6afd658b4a97874727330f8ff78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isContinuouslyInteractlable: 0
+  objectName: Airlock
+  working: 1
+  resourceType: 0
+  lastTimeFixed: 0
+--- !u!4 &1988335396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988335393}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.15, y: 0.7, z: -0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2012840479
 PrefabInstance:
   m_ObjectHideFlags: 0
