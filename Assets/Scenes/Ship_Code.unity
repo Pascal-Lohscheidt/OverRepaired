@@ -6939,7 +6939,6 @@ MonoBehaviour:
   isContinuouslyInteractlable: 0
   objectName: Energy Core
   working: 1
-  renderer: {fileID: 0}
   resourceType: 2
   lastTimeFixed: 0
 --- !u!1 &1430265999
@@ -8125,6 +8124,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459856726714516470, guid: 7511cb81a22944f35a225b728a85e108,
+        type: 3}
+      propertyPath: maxNumberOfEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459856726714516470, guid: 7511cb81a22944f35a225b728a85e108,
+        type: 3}
+      propertyPath: timeBetweenEvents
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7511cb81a22944f35a225b728a85e108, type: 3}

@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 35050200851690244}
   - component: {fileID: 3990256891858805130}
   - component: {fileID: 8571953745539482931}
+  - component: {fileID: 1482751584}
+  - component: {fileID: 1482751586}
+  - component: {fileID: 1482751585}
+  - component: {fileID: -7725243456305453308}
   m_Layer: 0
   m_Name: ToolCrateMiddle10
   m_TagString: Untagged
@@ -79,3 +83,59 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &1482751584
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635073662398083057}
+  serializedVersion: 2
+  m_Mass: 3
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1482751586
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635073662398083057}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3117406, y: 0.13333333, z: 0.3117406}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1482751585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635073662398083057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55354ef5d9ad469e973136ed5e9d24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partName: filter
+--- !u!114 &-7725243456305453308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635073662398083057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36d9a0b590448b19d4bd4f4cc18278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependsOnDistance: 1
+  showTextDistance: 10

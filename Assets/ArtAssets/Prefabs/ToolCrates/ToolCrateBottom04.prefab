@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 4401163856332973583}
   - component: {fileID: 2202606117519484866}
   - component: {fileID: 2984480126036599144}
+  - component: {fileID: 1078462019}
+  - component: {fileID: 1078462021}
+  - component: {fileID: 1078462020}
+  - component: {fileID: -4875889101734746022}
   m_Layer: 0
   m_Name: ToolCrateBottom04
   m_TagString: Untagged
@@ -79,3 +83,59 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &1078462019
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780370058774115438}
+  serializedVersion: 2
+  m_Mass: 3
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1078462021
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780370058774115438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.40000004, y: 0.13333338, z: 0.4}
+  m_Center: {x: -0.000000014901161, y: -0.13333334, z: 0}
+--- !u!114 &1078462020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780370058774115438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55354ef5d9ad469e973136ed5e9d24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partName: Spectral
+--- !u!114 &-4875889101734746022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780370058774115438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36d9a0b590448b19d4bd4f4cc18278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependsOnDistance: 1
+  showTextDistance: 10
