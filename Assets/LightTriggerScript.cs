@@ -5,22 +5,31 @@ using UnityEngine;
 public class LightTriggerScript : MonoBehaviour
 {
     Light light;
+    private bool shouldFadeIn = false;
 
     // Start is called before the first frame update
     void Start()
     {
         light = GetComponent<Light>();
-        light.enabled = false;
+        light.enabled = true;
+    }
+
+    private void Update()
+    {
+        if (shouldFadeIn)
+            light.intensity = Mathf.Lerp(light.intensity, 4, 0.7f * Time.deltaTime);
+        else
+            light.intensity = Mathf.Lerp(light.intensity, 0, 0.7f * Time.deltaTime);
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        light.enabled |= other.gameObject.CompareTag("Player");
+        shouldFadeIn |= other.gameObject.CompareTag("Player");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        light.enabled &= !other.gameObject.CompareTag("Player");
+        shouldFadeIn &= !other.gameObject.CompareTag("Player");
     }
 }
