@@ -81,6 +81,7 @@ public class ConstructionPlace : InteractableObject
         constructionTimer = 0;
 
         anim.enabled = false;
+        anim.Rebind();
         CameraFollowerToPlayer.Instance.ToggleZoomBehaviour(false);
         //anim.enabled = false;
         finishedRepairComponent = Instantiate(constructedComponentPrefab, boxParent.position, boxParent.rotation, null).GetComponent<ConstructedRepairComponent>();
@@ -113,6 +114,7 @@ public class ConstructionPlace : InteractableObject
     {
         constructionTimer = 0;
         anim.enabled = false;
+        anim.Rebind();
         CameraFollowerToPlayer.Instance.ToggleZoomBehaviour(false);
 
         if (currentPhase != ConstructionPhase.Done)
