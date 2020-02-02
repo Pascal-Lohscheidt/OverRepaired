@@ -708,6 +708,8 @@ GameObject:
   - component: {fileID: 763451966}
   - component: {fileID: 4163960675716524411}
   - component: {fileID: 3333343930139389181}
+  - component: {fileID: 916140632}
+  - component: {fileID: 916140633}
   m_Layer: 0
   m_Name: MangerObject
   m_TagString: Untagged
@@ -742,9 +744,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dea2d305db654e4c8ee64e131a25597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNumberOfEvents: 1
-  timeBetweenEvents: 25
-  minTimeAfterFix: 20
+  maxNumberOfEvents: 3
+  timeBetweenEvents: 30
+  minTimeAfterFix: 25
 --- !u!114 &8459856726714516471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,11 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2c8e763dc50fa40bdf54587db35757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseWord:
-  - Sex
-  - und
-  - Gewalt
-  - Shit
+  baseWord: []
 --- !u!114 &763451966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,3 +946,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &916140632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8459856726714516456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a27ae6a743604204964f07167ff7268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loseScreen: {fileID: 0}
+--- !u!114 &916140633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8459856726714516456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628ba3b405014496498f253d47963782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
