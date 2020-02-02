@@ -8,7 +8,7 @@ public class LoadMainLevel : MonoBehaviour
     public void LoadMainLevelNow()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
     public void LoadMenu()

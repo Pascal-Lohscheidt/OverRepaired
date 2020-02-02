@@ -17,7 +17,8 @@ public class GamePhaseManager : Singleton<GamePhaseManager>
 
     public void ExitGameToMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        Time.timeScale = 1;
     }
 
     // Start is called before the first frame update

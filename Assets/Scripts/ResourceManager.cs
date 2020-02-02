@@ -24,6 +24,10 @@ public class ResourceManager : Singleton<ResourceManager>
         energyResource = new Resource(Resource.ResourceType.Energy, EnergyBar);
         integrityResource = new Resource(Resource.ResourceType.Integrity, IntegrityBar);
         lifeSupportResource = new Resource(Resource.ResourceType.LifeSupport, LifeSupportBar);
+
+        energyResource.FillResource();
+        integrityResource.FillResource();
+        integrityResource.FillResource();
     }
 
     // Update is called once per frame
