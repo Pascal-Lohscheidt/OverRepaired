@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 using DG.Tweening;
+using TMPro;
 
 public class IssueUIHandler : Singleton<IssueUIHandler>
 {
     private Dictionary<Issue, IssueTicketElement> issuesOnTheList = new Dictionary<Issue, IssueTicketElement>();
     [SerializeField] private Transform ticketListPanel; // Notification Pop down
     [SerializeField] private GameObject issueTicketElementPrefab;
-    public Text MainText;
+    public TextMeshProUGUI MainText;
     public float ShakeAnimationDuration = 0.5f;
     public float TargetScale = 2f;
     Tween CurrentAnimation;
@@ -44,7 +45,8 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
     {
         MainText.text = SetNewIssueText(Needings);
         MainText.gameObject.SetActive(true);
-        CurrentAnimation = MainText.transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
+        // ScaleUP
+        CurrentAnimation= MainText.transform.DOScale(TargetScale, ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
         audio.PlayDelayed(0.3f);
     }
 
@@ -54,9 +56,9 @@ public class IssueUIHandler : Singleton<IssueUIHandler>
         MainText.gameObject.SetActive(true);
         audio.PlayDelayed(0.3f);
         // ScaleUP
-        MainText.transform.DOScale(TargetScale, ShakeAnimationDuration);
+        CurrentAnimation = MainText.transform.DOScale(TargetScale, ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
         // Rotation
-        CurrentAnimation = MainText.transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
+        //CurrentAnimation = MainText.transform.DOShakeRotation(ShakeAnimationDuration).OnComplete(CheckIfRunningOtherwiseDisable);
     }
 
     void CheckIfRunningOtherwiseDisable()
