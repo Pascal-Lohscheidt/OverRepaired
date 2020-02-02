@@ -21,7 +21,6 @@ public class PlayerInteractionHandler : MonoBehaviour
         {
             if (currentObject.isContinuouslyInteractlable)
             {
-                print("enterd");
                 if (Input.GetKey(KeyCode.E) && isInInteractionArea && !doneWithCurrentInteraction)
                     currentObject.InteractContinuously(this);
                 else
@@ -79,7 +78,7 @@ public class PlayerInteractionHandler : MonoBehaviour
             {
                 holdingComponent = componentToPick;
                 holdingComponent.transform.SetParent(transform);
-                holdingComponent.ToggleVisibility(true);
+                holdingComponent.gameObject.SetActive(true);
                 holdingComponent.transform.position = holdingTransform.position;
                 holdingComponent.SetAffectedByGravity(false);
             }
@@ -90,7 +89,7 @@ public class PlayerInteractionHandler : MonoBehaviour
             if (holdingComponent != null)
             {
                 holdingComponent.transform.SetParent(transform);
-                holdingComponent.ToggleVisibility(true);
+                holdingComponent.gameObject.SetActive(true);
                 holdingComponent.transform.position = holdingTransform.position;
                 holdingComponent.SetAffectedByGravity(false);
             }
@@ -105,12 +104,12 @@ public class PlayerInteractionHandler : MonoBehaviour
         if(currentObject == null) //just drop it on the floor
         {
             holdingComponent.transform.SetParent(null);
-            holdingComponent.ToggleVisibility(true);
+            holdingComponent.gameObject.SetActive(true);
             holdingComponent.SetAffectedByGravity(true);
         }
         else if(currentObject.AddPickableComponent(holdingComponent)) 
         {
-            Destroy(holdingComponent.gameObject);
+
         }
 
         holdingComponent = null;

@@ -14,6 +14,5 @@ public class ConstructedRepairComponent : PickAbleObject
         print("test");
         ToggleVisibility(false);
         SetAffectedByGravity(false);
-        transform.localScale = new Vector3(0.5f, 1, 1);
     }
 }
