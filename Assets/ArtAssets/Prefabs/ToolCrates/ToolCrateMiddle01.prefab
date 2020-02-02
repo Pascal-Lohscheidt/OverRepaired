@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: capacitor
+  componentType: 1
 --- !u!114 &-5736111403294110527
 MonoBehaviour:
   m_ObjectHideFlags: 0

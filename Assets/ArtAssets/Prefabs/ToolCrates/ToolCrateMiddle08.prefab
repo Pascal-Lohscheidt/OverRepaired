@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: deflektor
+  componentType: 1
 --- !u!114 &5162866649234849510
 MonoBehaviour:
   m_ObjectHideFlags: 0

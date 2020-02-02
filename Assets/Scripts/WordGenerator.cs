@@ -3,28 +3,33 @@ using System.Collections.Generic;
 
 public class WordGenerator : MonoBehaviour
 {
-    public List<string> BaseWord = new List<string>();
+    public List<RepairComponent> baseWord = new List<RepairComponent>();
 
     private void Start()
     {
-        BaseWord = GetBaseWords(IssueManager.Instance.AllRepairComponentPrefaps);
+        //baseWord = GetBaseWords(IssueManager.Instance.AllRepairComponentPrefaps);
     }
 
-    private List<string> GetBaseWords(List<RepairComponent> allRepairComponents)
-    {
-        BaseWord = new List<string>();
-        foreach (RepairComponent item in allRepairComponents)
-            BaseWord.Add(item.partName);
-        return BaseWord;
-    }
+    //private List<string> GetBaseWords(List<RepairComponent> allRepairComponents)
+    //{
+    //    baseWord = new List<string>();
+    //    foreach (RepairComponent item in allRepairComponents)
+    //        baseWord.Add(item.partName);
+    //    return baseWord;
+    //}
 
     public SerchedComponentenWort generateWord()
     {
+        List<RepairComponent> preList = IssueManager.Instance.AllRepairComponentPrefaps.FindAll(i => i.componentType == RepairComponent.ComponentType.Bottom);
+        List<RepairComponent> baseList = IssueManager.Instance.AllRepairComponentPrefaps.FindAll(i => i.componentType == RepairComponent.ComponentType.Middle);
+        List<RepairComponent> suffixList = IssueManager.Instance.AllRepairComponentPrefaps.FindAll(i => i.componentType == RepairComponent.ComponentType.Top);
+
         return new SerchedComponentenWort
         {
-        Prefix = BaseWord[Random.Range(0, BaseWord.Count)],
-        BaseWord = BaseWord[Random.Range(0, BaseWord.Count)],
-        Suffix = BaseWord[Random.Range(0, BaseWord.Count)]
+           
+            Prefix = preList[Random.Range(0, preList.Count)].partName,
+            BaseWord = baseList[Random.Range(0, baseList.Count)].partName,
+            Suffix = suffixList[Random.Range(0, suffixList.Count)].partName
         };
     }
 }

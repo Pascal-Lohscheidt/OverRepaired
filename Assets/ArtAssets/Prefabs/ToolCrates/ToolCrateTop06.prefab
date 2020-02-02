@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: mass
+  componentType: 2
 --- !u!114 &9030805486347405531
 MonoBehaviour:
   m_ObjectHideFlags: 0

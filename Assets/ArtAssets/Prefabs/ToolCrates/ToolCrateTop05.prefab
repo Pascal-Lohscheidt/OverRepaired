@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: ezine
+  componentType: 2
 --- !u!114 &2990216849627385818
 MonoBehaviour:
   m_ObjectHideFlags: 0

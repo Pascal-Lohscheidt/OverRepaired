@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: booster
+  componentType: 1
 --- !u!114 &3545217042439829791
 MonoBehaviour:
   m_ObjectHideFlags: 0

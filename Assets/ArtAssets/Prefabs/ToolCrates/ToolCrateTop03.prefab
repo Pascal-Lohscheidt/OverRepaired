@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partName: driver
+  componentType: 2
 --- !u!114 &8946638434043549763
 MonoBehaviour:
   m_ObjectHideFlags: 0
