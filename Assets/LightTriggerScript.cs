@@ -17,9 +17,9 @@ public class LightTriggerScript : MonoBehaviour
     private void Update()
     {
         if (shouldFadeIn)
-            light.intensity = Mathf.Lerp(light.intensity, 4, 0.7f * Time.deltaTime);
+            light.intensity = Mathf.Lerp(light.intensity, 8, 0.9f * Time.deltaTime);
         else
-            light.intensity = Mathf.Lerp(light.intensity, 0, 0.7f * Time.deltaTime);
+            light.intensity = Mathf.Lerp(light.intensity, 0, 0.9f * Time.deltaTime);
     }
 
 
