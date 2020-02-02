@@ -8872,6 +8872,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceShipWorkbench00
       objectReference: {fileID: 0}
+    - target: {fileID: 3451869290235958765, guid: 4e0fc9745499e9e49b2eedce6d92e5ed,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 5034025988910364394, guid: 4e0fc9745499e9e49b2eedce6d92e5ed,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e0fc9745499e9e49b2eedce6d92e5ed, type: 3}
 --- !u!4 &1831139230 stripped

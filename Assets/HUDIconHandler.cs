@@ -15,6 +15,7 @@ public class HUDIconHandler : MonoBehaviour
         HUDIconParent = GameObject.FindGameObjectWithTag("IconParent").transform;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         hudText = Instantiate(new GameObject(), HUDIconParent).AddComponent<TextMeshProUGUI>();
+        hudText.faceColor = new Color32(255, 255, 255, 255);
         hudText.alignment = TextAlignmentOptions.Center;
         hudText.rectTransform.sizeDelta = new Vector2(500f, 40f);
     }
