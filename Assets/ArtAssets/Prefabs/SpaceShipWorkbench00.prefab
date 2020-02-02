@@ -13,7 +13,7 @@ GameObject:
   m_Name: RoboArmClaw00 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5270625556164223905
@@ -47,8 +47,8 @@ GameObject:
   m_Name: Workbench00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5495813163297398848
 Transform:
@@ -137,7 +137,7 @@ GameObject:
   m_Name: RoboArm01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &9037496764757866832
@@ -169,7 +169,7 @@ GameObject:
   m_Name: RoboArmClaw00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6448729020138516466
@@ -257,7 +257,7 @@ GameObject:
   m_Name: RoboArmAture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6813578656375698886
@@ -285,11 +285,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1854595793341573118}
   - component: {fileID: 6685151379738027566}
+  - component: {fileID: 204873049443039660}
+  - component: {fileID: 5034025988910364394}
   m_Layer: 0
   m_Name: SpaceShipWorkbench00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1854595793341573118
@@ -334,6 +336,41 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &204873049443039660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451869290235958765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 164d5fe85ad21468ea87e56df1b2addd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isContinuouslyInteractlable: 0
+  currentPhase: 0
+  maxAmountOfComponents: 3
+  constructionDuration: 3
+  partsRequiredSprite: {fileID: 0}
+  doneSprite: {fileID: 0}
+  addedComponents: []
+  constructedComponentPrefab: {fileID: 6906645592108210101, guid: 4f24ccab0a50643a4a35df6afbd1f133,
+    type: 3}
+  renderer: {fileID: 0}
+--- !u!65 &5034025988910364394
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451869290235958765}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 1.87, z: 1.79}
+  m_Center: {x: 0, y: 0.01, z: 0.58}
 --- !u!1 &3945812360406741762
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +384,7 @@ GameObject:
   m_Name: RoboArmRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3738192452397283935
@@ -378,7 +415,7 @@ GameObject:
   m_Name: RoboArmHand00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4827949265074969673
@@ -411,7 +448,7 @@ GameObject:
   m_Name: RoboArm03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6983388522267594260
@@ -499,7 +536,7 @@ GameObject:
   m_Name: RoboArmClaw01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8322138843324815074
@@ -531,7 +568,7 @@ GameObject:
   m_Name: RoboArm02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4247986103997960135
@@ -619,7 +656,7 @@ GameObject:
   m_Name: RoboArm00 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2328077106109614415
@@ -651,7 +688,7 @@ GameObject:
   m_Name: RoboArmClaw01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5897637871230971246
@@ -739,7 +776,7 @@ GameObject:
   m_Name: RoboArmClaw01_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5323397792985425646
@@ -769,7 +806,7 @@ GameObject:
   m_Name: RoboArmClaw00_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2635177981439757997
@@ -800,7 +837,7 @@ GameObject:
   m_Name: RoboArm00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4512126090479297873
@@ -889,7 +926,7 @@ GameObject:
   m_Name: RoboArm01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6153141044543940388
@@ -978,7 +1015,7 @@ GameObject:
   m_Name: RoboArmRoot00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4079821583220387452
@@ -1066,7 +1103,7 @@ GameObject:
   m_Name: RoboArm02 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1331008358573816794

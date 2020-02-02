@@ -67,7 +67,7 @@ public class PlayerInteractionHandler : MonoBehaviour
         {
             List<PickAbleObject> componentsInScene = new List<PickAbleObject>();
             componentsInScene.AddRange(FindObjectsOfType<PickAbleObject>());
-            componentsInScene.RemoveAll(i => Vector3.Distance(i.transform.position, transform.position) > 2f);
+            componentsInScene.RemoveAll(i => Vector3.Distance(i.transform.position, transform.position) > 3f);
 
             PickAbleObject componentToPick = null;
 

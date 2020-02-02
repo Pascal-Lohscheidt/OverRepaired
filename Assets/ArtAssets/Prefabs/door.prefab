@@ -264,6 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1163685714567414739}
   - component: {fileID: 5076643182463979471}
+  - component: {fileID: 3460635161588614677}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -301,3 +302,17 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &3460635161588614677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8101889472362007605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783b62c0ed844407bbe9ceafaa123231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorLAnim: {fileID: 6433284622418051444}
+  doorRAnim: {fileID: 4682336086751266854}
