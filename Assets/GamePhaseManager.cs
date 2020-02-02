@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
-public class GamePhaseManager : MonoBehaviour
+public class GamePhaseManager : Singleton<GamePhaseManager>
 {
 
+    public GameObject loseScreen;
+
+    
     public void LoseGame()
     {
-
+        StartCoroutine(HandleGameLose());
     }
  
 
@@ -20,12 +24,20 @@ public class GamePhaseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        loseScreen.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) ExitGameToMenu();
+    }
+
+    private IEnumerator HandleGameLose()
+    {
+        loseScreen.SetActive(true);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(5f);
+        ExitGameToMenu();
     }
 }

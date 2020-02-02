@@ -33,6 +33,7 @@ public class Resource
         else
         {
             Debug.Log("Resource is destroyed: " + resourceType.ToString());
+            GamePhaseManager.Instance.LoseGame();
         }
 
         if(resourceBar != null)
